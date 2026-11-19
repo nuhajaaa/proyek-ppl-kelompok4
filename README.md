@@ -1,5 +1,3 @@
-# proyek-ppl-kelompok4
-# proyek-ppl-kelompok4
 # Anindita Space — Website
 
 Repositori ini berisi kode sumber, dokumentasi analisis sistem, dan perancangan arsitektur untuk pengembangan **Website Anindita Space**.
