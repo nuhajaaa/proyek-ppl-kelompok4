@@ -1,83 +1,24 @@
-# Anindita Space — Website
+# Anindita Creative
 
-Repositori ini berisi kode sumber, dokumentasi analisis sistem, dan perancangan arsitektur untuk pengembangan **Website Anindita Space**.
+Static frontend and a small Node.js server for the landing page and admin editor.
 
----
+## Run locally
 
-## 📌 Ringkasan Proyek
+Node.js 18 or newer is required. Set a private admin password in the environment; it is never stored in the repository.
 
-Website **Anindita Space** dibangun untuk [jelaskan tujuan utama bisnis/produk, misalnya: menampilkan profil ruang/layanan, mempermudah informasi katalog/paket, serta menangani reservasi/pertanyaan pelanggan secara digital].
+## Admin login
 
-Dokumen ini merangkum tahapan perencanaan, analisis kebutuhan, perancangan sistem, dan panduan pengembangan proyek.
+- Username: `admin` by default. Override it with `ADMIN_USERNAME` if needed.
+- Password: the value assigned to `ADMIN_PASSWORD` when starting the server. There is no password stored in the project; use at least 16 characters.
 
----
+PowerShell:
 
-## 🚀 Fitur Utama (Berdasarkan Prioritas MoSCoW)
+```powershell
+$env:ADMIN_USERNAME = "admin"
+$env:ADMIN_PASSWORD = "set-a-private-password-with-at-least-16-characters"
+node .\server.js
+```
 
-### Must-Have (Wajib Ada untuk Rilis Awal)
-* [ ] Halaman Beranda (*Landing Page*) & Profil Anindita Space
-* [ ] Katalog Layanan / Ruang / Produk
-* [ ] Formulir Kontak / Reservasi / Pemesanan Dasar
-* [ ] Manajemen Konten / Data Dasar (*Admin/Owner*)
+Open `http://127.0.0.1:4173/` for the landing page and `http://127.0.0.1:4173/admin` for the admin panel. The server writes public content changes to `content.json`. Admin sessions expire after eight hours and are held in server memory, so restarting the server logs the admin out.
 
-### Should-Have (Penting)
-* [ ] Pencarian & Penyaringan (*Filter*) Item/Layanan
-* [ ] Notifikasi / Konfirmasi Status Pengajuan
-* [ ] Dashboard Ringkasan untuk Pengelola
-
-### Could-Have (Tambahan / Nilai Lebih)
-* [ ] Galeri Interaktif / Testimoni Pengunjung
-* [ ] Integrasi Kalender / Jadwal Ketersediaan Real-Time
-
-### Won't-Have (Belum Dikerjakan di Fase Ini)
-* [ ] [Sebutkan fitur yang ditunda ke fase berikutnya, jika ada]
-
----
-
-## 🧠 Analisis Kebutuhan & Dokumentasi Sistem
-
-Proyek ini dikembangkan melalui tahapan analisis dan perancangan terstruktur:
-
-1. **Proposal Proyek:** Penyusunan ruang lingkup, tujuan, estimasi lini masa/biaya, dan pengesahan (*sign-off*) bersama *owner*.
-2. **Elisitasi Kebutuhan:** Wawancara mendalam dengan *owner* serta penyusunan notulen dan daftar kebutuhan fungsional & non-fungsional.
-3. **Product Backlog & MoSCoW:** Penerjemahan kebutuhan menjadi *User Story*, *Acceptance Criteria*, dan penentuan prioritas **MoSCoW**.
-4. **SRS & Spesifikasi Use Case:** Dokumentasi *Software Requirements Specification* (SRS) beserta diagram dan skenario *Use Case* (*main flow*, *alternative flow*, *exception flow*).
-5. **Perancangan Arsitektur & Diagram:** Penerapan pola arsitektur **MVC** (*Model-View-Controller*), *Use Case Diagram*, dan *Sequence Diagram*.
-
-> **Tautan Dokumen Pendukung:**
-> * Proposal Proyek: `[Link Dokumen]`
-> * Notulen & Hasil Elisitasi: `[Link Dokumen]`
-> * Product Backlog (MoSCoW): `[Link Spreadsheet / Board]`
-> * Dokumen SRS: `[Link Dokumen]`
-> * Diagram (Use Case, Sequence, MVC): `[Link Draw.io / Lucidchart / Figma]`
-
----
-
-## 🏗️ Arsitektur Sistem (MVC)
-
-Aplikasi dirancang menggunakan pendekatan **Model-View-Controller (MVC)** agar kode terorganisasi dan mudah dipelihara:
-
-* **Model:** Mengelola struktur data, query/interaksi *database*, dan aturan data inti.
-* **View:** Menampilkan antarmuka pengguna (*UI*) dan merespons data yang dikirimkan oleh *Controller*.
-* **Controller:** Menangani permintaan pengguna (*request*), menjalankan logika bisnis, menghubungkan *Model* dan *View*, serta mengembalikan respons.
-
----
-
-## 🛠️ Tech Stack
-
-Sesuaikan bagian ini dengan teknologi yang Anda gunakan:
-
-* **Frontend:** HTML5, CSS3 / Tailwind CSS / Bootstrap, JavaScript
-* **Backend:** [Contoh: PHP / Laravel / Node.js / Python]
-* **Database:** [Contoh: MySQL / PostgreSQL]
-* **Version Control & Project Management:** Git & GitHub (Issues & Projects)
-
----
-
-## ⚙️ Panduan Instalasi & Menjalankan Proyek (Lokal)
-
-1. **Clone repositori**
-   ```bash
-   git clone [https://github.com/username/anindita-space.git](https://github.com/username/anindita-space.git)
-   cd anindita-space
-
+For production, run behind HTTPS, set `NODE_ENV=production`, and use a strong password provided by the deployment secret manager. The built-in in-memory session and login rate limit are intended for a small single-admin deployment; use the application's production authentication/session infrastructure for a larger or multi-admin service.
