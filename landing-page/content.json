@@ -110,7 +110,11 @@
       "icon": "EV",
       "name": "Edit Video",
       "description": "Reels, TikTok, YouTube: cutting rapi, color grading, subtitle, dan sound design.",
+<<<<<<< HEAD
       "price": 150000
+=======
+      "price": 100000
+>>>>>>> 5db38a8 (Add landing page styles and Vercel configuration)
     },
     {
       "id": "edit-feed",
