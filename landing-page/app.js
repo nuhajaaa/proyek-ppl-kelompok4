@@ -130,10 +130,21 @@ function renderProjects(filter = "Semua") {
     const article = makeElement("article", "project-card");
     const image = makeElement("div", "project-image");
     image.style.background = `linear-gradient(135deg, ${project.colors[0]}, ${project.colors[1]})`;
+    const logoLabel = project.client || project.name;
+    const initials = logoLabel
+      .split(/\s+/)
+      .filter((word) => word !== "&")
+      .slice(0, 2)
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
+    const logo = makeElement("span", "project-logo", initials);
+    logo.setAttribute("role", "img");
+    logo.setAttribute("aria-label", `Logo ${logoLabel}`);
     const tag = makeElement("span", "project-tag", project.category);
     const play = makeElement("span", "play-icon", "▶");
     play.setAttribute("aria-hidden", "true");
-    image.append(tag, play);
+    image.append(logo, tag, play);
     article.append(image, makeElement("h3", "", project.name), makeElement("p", "", `${project.client} · ${project.year}`));
     return article;
   }));

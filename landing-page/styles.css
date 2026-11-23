@@ -238,7 +238,8 @@ h1, h2, h3, p { margin-top: 0; }
   border-radius: 50%;
   background: #f6eee3;
   color: #79583e;
-  font-size: 16px;
+  font: 700 14px Georgia,serif;
+  letter-spacing: -.03em;
 }
 .service-card h3 { margin: 18px 0 12px; font-size: 22px; font-weight: 650; letter-spacing: -.025em; }
 .service-card > p { max-width: 330px; margin-bottom: 24px; color: var(--muted); font-size: 13px; line-height: 1.65; }
@@ -287,7 +288,8 @@ h1, h2, h3, p { margin-top: 0; }
 }
 .project-image::after { position: absolute; inset: 0; background: linear-gradient(130deg,rgba(42,23,13,.24),transparent 58%,rgba(255,255,255,.07)); content: ""; }
 .project-image .play-icon { z-index: 1; }
-.project-tag { position: absolute; z-index: 2; top: 16px; left: 16px; padding: 8px 12px; border-radius: 99px; background: #fff7eb; color: #5d3d28; font-size: 11px; }
+.project-logo { position: absolute; z-index: 2; top: 16px; left: 16px; display: grid; width: 58px; aspect-ratio: 1; place-items: center; border: 1px solid rgba(93,61,40,.12); border-radius: 50%; background: #fff7eb; box-shadow: 0 5px 16px rgba(42,23,13,.12); color: #5d3d28; font: 700 16px Georgia,serif; letter-spacing: -.04em; }
+.project-tag { position: absolute; z-index: 2; top: 16px; right: 16px; padding: 8px 12px; border-radius: 99px; background: #fff7eb; color: #5d3d28; font-size: 11px; }
 .project-card h3 { margin: 18px 0 9px; font-size: 19px; font-weight: 650; letter-spacing: -.015em; }
 .project-card p { margin: 0; color: var(--muted); font-size: 12px; }
 .portfolio-more { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 44px; }
@@ -469,7 +471,8 @@ h1, h2, h3, p { margin-top: 0; }
   .filter-button { flex: 0 0 auto; min-height: 34px; padding: 0 13px; font-size: 11px; }
   .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 25px 14px; }
   .project-image { border-radius: 18px; }
-  .project-tag { top: 10px; left: 10px; padding: 6px 9px; font-size: 9px; }
+  .project-logo { top: 10px; left: 10px; width: 42px; font-size: 12px; }
+  .project-tag { top: 10px; right: 10px; padding: 6px 9px; font-size: 9px; }
   .project-card h3 { margin: 11px 0 6px; font-size: 14px; }
   .project-card p { font-size: 10px; }
   .project-image .play-icon { width: 36px; height: 36px; }

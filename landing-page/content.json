@@ -107,42 +107,42 @@
   "services": [
     {
       "id": "edit-video",
-      "icon": "Ã¢â€“Â£",
+      "icon": "EV",
       "name": "Edit Video",
       "description": "Reels, TikTok, YouTube: cutting rapi, color grading, subtitle, dan sound design.",
       "price": 150000
     },
     {
       "id": "edit-feed",
-      "icon": "Ã¢â€“Â¦",
+      "icon": "EF",
       "name": "Edit Feed",
       "description": "Tata letak feed Instagram yang konsisten: carousel, reels, dan paket warna brand.",
       "price": 250000
     },
     {
       "id": "videographer",
-      "icon": "Ã¢â€“Â§",
+      "icon": "VG",
       "name": "Videographer",
       "description": "Shooting profesional untuk produk, event, dan company profile lengkap dengan crew.",
       "price": 1500000
     },
     {
       "id": "3d-text",
-      "icon": "Ã¢â€”â€°",
+      "icon": "3D",
       "name": "3D Text Movement",
       "description": "Teks 3D bergerak yang memberi penampilan unik, lebih kuat, dan dinamis.",
       "price": 350000
     },
     {
       "id": "motion-graphic",
-      "icon": "Ã¢Å“Â¦",
+      "icon": "MG",
       "name": "Motion Graphic",
       "description": "Animasi logo, infografis, dan elemen motion untuk mempercantik cerita brand.",
       "price": 400000
     },
     {
       "id": "content-package",
-      "icon": "Ã¢â€“Â¤",
+      "icon": "PK",
       "name": "Paket Konten Bulanan",
       "description": "Paket hemat: video, feed, dan konsultasi konten dalam satu bundel.",
       "price": 2500000
@@ -249,22 +249,22 @@
     ],
     "features": [
       {
-        "icon": "Ã¢Å“Â¦",
+        "icon": "FP",
         "title": "Fokus pada project",
         "description": "Setiap brief ditangani dengan tim dan target yang jelas."
       },
       {
-        "icon": "Ã¢â€”Â·",
+        "icon": "TW",
         "title": "Tepat waktu",
         "description": "Jadwal produksi disepakati sejak awal dan diperbarui berkala."
       },
       {
-        "icon": "Ã¢Å“â€œ",
+        "icon": "RT",
         "title": "Revisi transparan",
         "description": "Jumlah revisi tertulis di awal, tanpa biaya tersembunyi."
       },
       {
-        "icon": "Ã¢â€“Â§",
+        "icon": "ST",
         "title": "Satu tim, banyak layanan",
         "description": "Video, feed, dan motion dikerjakan dengan gaya yang konsisten."
       }

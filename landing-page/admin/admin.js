@@ -47,7 +47,7 @@ const fieldLabels = {
   galleryStagger: "Offset tile kanan atas (%)",
   green: "Hijau tombol",
   hero: "Hero",
-  icon: "Ikon",
+  icon: "Logo / inisial",
   imageColors: "Warna visual tentang",
   ink: "Cokelat gelap",
   inkSoft: "Cokelat tombol",
