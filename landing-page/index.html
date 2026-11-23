@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#321b0f">
+    <meta name="description" content="Anindita Creative membantu brand bercerita lewat video, edit feed, videografi, dan motion graphic.">
+    <title>Anindita Creative — Ceritakan Brand Anda</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#beranda" aria-label="Anindita, ke beranda">anindita</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Buka navigasi">
+        <span></span><span></span>
+      </button>
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#portofolio">Portofolio</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#proses">Proses</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-button" type="button" aria-label="Buka keranjang" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="19" r="1"></circle><circle cx="18" cy="19" r="1"></circle></svg>
+          <span class="cart-count" aria-live="polite">0</span>
+        </button>
+        <a class="button button-light header-order" href="#layanan">Pesan Sekarang</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="beranda">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow eyebrow-outline" id="hero-eyebrow">Creative agency berbasis project</span>
+            <h1 class="hero-title">Kami mengubah ide<br class="desktop-break"> menjadi karya visual<br class="desktop-break"> yang bercerita.</h1>
+            <p class="hero-description">Edit video, edit feed, videographer, hingga 3D text movement. Satu tim kreatif untuk membuat brand Anda tampil memukau dan mudah diingat.</p>
+            <div class="hero-actions">
+              <a class="button button-light hero-primary" href="#layanan">Lihat Layanan</a>
+              <a class="button button-green hero-whatsapp" href="https://wa.me/628733812033?text=Halo%20Anindita%2C%20saya%20ingin%20konsultasi%20project." target="_blank" rel="noreferrer">◉&nbsp; Chat via WhatsApp</a>
+            </div>
+            <div class="hero-stats" id="hero-stats" aria-label="Statistik Anindita Creative">
+              <div><strong>150+</strong><span>Project selesai</span></div>
+              <div><strong>60+</strong><span>Klien puas</span></div>
+              <div><strong>5</strong><span>Layanan kreatif</span></div>
+            </div>
+          </div>
+          <div class="hero-gallery" id="hero-gallery" aria-label="Contoh layanan kreatif">
+            <div class="hero-tile tile-video"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">Edit Video</span></div>
+            <div class="hero-tile tile-feed"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">Edit Feed</span></div>
+            <div class="hero-tile tile-text"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">3D Text</span></div>
+            <div class="hero-tile tile-videographer"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">Videographer</span></div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="service-ribbon" id="service-ribbon" aria-label="Kategori layanan">
+        <a href="#layanan">Edit Video</a>
+        <a href="#layanan">Edit Feed</a>
+        <a href="#layanan">Videographer</a>
+        <a href="#layanan">3D Text Movement</a>
+        <a href="#layanan">Motion Graphic</a>
+        <a href="#layanan">Content Package</a>
+      </nav>
+
+      <section class="section services-section" id="layanan">
+        <div class="section-heading services-heading">
+          <div>
+            <span class="eyebrow" id="services-eyebrow">Layanan kami</span>
+            <h2 id="services-title">Semua kebutuhan visual brand<br class="desktop-break"> Anda, dalam satu tim.</h2>
+          </div>
+          <p id="services-description">Harga di bawah adalah contoh. Ubah sesuai tarif Anda.</p>
+        </div>
+        <div class="service-grid" id="service-grid"></div>
+      </section>
+
+      <section class="section portfolio-section" id="portofolio">
+        <div class="section-heading portfolio-heading">
+          <div>
+            <span class="eyebrow" id="portfolio-eyebrow">Portofolio</span>
+            <h2 id="portfolio-title">Karya terpilih dari project yang<br class="desktop-break"> sudah kami kerjakan.</h2>
+          </div>
+          <div class="portfolio-filters" id="portfolio-filters" role="group" aria-label="Filter portofolio">
+            <button type="button" class="filter-button is-active" data-filter="Semua" aria-pressed="true">Semua</button>
+            <button type="button" class="filter-button" data-filter="Edit Video" aria-pressed="false">Edit Video</button>
+            <button type="button" class="filter-button" data-filter="Edit Feed" aria-pressed="false">Edit Feed</button>
+            <button type="button" class="filter-button" data-filter="Videographer" aria-pressed="false">Videographer</button>
+            <button type="button" class="filter-button" data-filter="3D Text Movement" aria-pressed="false">3D</button>
+          </div>
+        </div>
+        <div class="project-grid" id="project-grid"></div>
+        <div class="portfolio-more">
+          <a class="button button-dark" id="portfolio-view-all" href="#kontak">Lihat Semua Karya</a>
+          <span id="portfolio-view-all-note">Gerai tumbuh &amp; nama klien dengan karya Anda.</span>
+        </div>
+      </section>
+
+      <section class="section about-section" id="tentang">
+        <div class="about-image" role="img" aria-label="Visual kreatif bernuansa cokelat"></div>
+        <div class="about-copy">
+          <span class="eyebrow" id="about-eyebrow">Tentang kami</span>
+          <h2 id="about-title">Studio kreatif yang berfokus<br class="desktop-break"> pada hasil setiap project.</h2>
+          <p id="about-description">Anindita adalah agensi kreatif yang bekerja per project. Kami memadukan sentuhan visual yang hangat dengan proses kerja yang jelas, sehingga ide Anda tidak hanya terlihat bagus, tetapi juga tepat sasaran.</p>
+          <div class="feature-grid" id="feature-grid">
+            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">✦</span><h3>Fokus pada project</h3><p>Setiap brief ditangani dengan tim dan target yang jelas.</p></article>
+            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">◷</span><h3>Tepat waktu</h3><p>Jadwal produksi disepakati sejak awal dan diperbarui berkala.</p></article>
+            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">✓</span><h3>Revisi transparan</h3><p>Jumlah revisi tertulis di awal, tanpa biaya tersembunyi.</p></article>
+            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">▧</span><h3>Satu tim, banyak layanan</h3><p>Video, feed, dan motion dikerjakan dengan gaya yang konsisten.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process-section" id="proses">
+        <span class="eyebrow eyebrow-muted" id="process-eyebrow">Proses kerja</span>
+        <h2 id="process-title">Dari chat pertama sampai hasil akhir, semuanya terarah.</h2>
+        <div class="process-grid" id="process-grid">
+          <article class="process-card"><span>01</span><h3>Konsultasi</h3><p>Ceritakan kebutuhan Anda dan kami bantu pilih layanan yang tepat.</p></article>
+          <article class="process-card"><span>02</span><h3>Pilih &amp; checkout</h3><p>Tentukan layanan yang diinginkan, lalu pilih kirim lewat WhatsApp.</p></article>
+          <article class="process-card"><span>03</span><h3>Produksi &amp; revisi</h3><p>Tim kami mengerjakan, Anda memberi masukan sesuai jadwal revisi.</p></article>
+          <article class="process-card"><span>04</span><h3>Hasil dikirim</h3><p>File final dikirim dalam format siap pakai untuk semua platform.</p></article>
+        </div>
+      </section>
+
+      <section class="section testimonials-section">
+        <span class="eyebrow" id="testimonials-eyebrow">Testimoni</span>
+        <h2 id="testimonials-title">Apa kata klien yang sudah bekerja sama dengan kami.</h2>
+        <div class="testimonial-grid" id="testimonial-grid"></div>
+        <div class="contact-banner" id="kontak">
+          <div>
+            <h2 id="contact-title">Punya project? Ayo kita<br class="desktop-break"> bicarakan.</h2>
+            <p id="contact-description">Pilih layanan, isi brief singkat, dan pesanan Anda langsung terkirim ke WhatsApp kami.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-green contact-whatsapp" href="https://wa.me/628733812033?text=Halo%20Anindita%2C%20saya%20ingin%20membicarakan%20project." target="_blank" rel="noreferrer">◉&nbsp; Chat via WhatsApp</a>
+            <button class="button button-light open-cart" id="contact-cart-button" type="button">Buka Keranjang</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="wordmark" href="#beranda">anindita</a>
+          <p id="footer-description">Agensi kreatif untuk edit video, edit feed, videographer, dan 3D text movement.</p>
+        </div>
+        <div class="footer-column"><h2 id="footer-services-title">Layanan</h2><div class="footer-links" id="footer-services"></div></div>
+        <div class="footer-column"><h2 id="footer-company-title">Perusahaan</h2><div class="footer-links" id="footer-company"></div></div>
+        <div class="footer-column"><h2 id="footer-contact-title">Kontak</h2><div class="footer-links" id="footer-contact"></div></div>
+      </div>
+      <div class="footer-bottom" id="footer-copyright">© 2025 Anindita Creative. Semua hak cipta dilindungi.</div>
+    </footer>
+
+    <div class="cart-overlay" hidden></div>
+    <aside class="cart-panel" role="dialog" aria-label="Keranjang layanan" aria-modal="false" aria-hidden="true" inert>
+      <div class="cart-panel-header"><h2>Keranjang Anda</h2><button class="cart-close" type="button" aria-label="Tutup keranjang">×</button></div>
+      <div class="cart-items" aria-live="polite"></div>
+      <div class="cart-panel-footer"><p class="cart-total"></p><a class="button button-dark cart-checkout" href="https://wa.me/628733812033?text=Halo%20Anindita%2C%20saya%20ingin%20memesan%20layanan." target="_blank" rel="noreferrer">Lanjutkan via WhatsApp</a></div>
+    </aside>
+    <div class="toast-message" role="status" aria-live="polite"></div>
+  </body>
+</html>

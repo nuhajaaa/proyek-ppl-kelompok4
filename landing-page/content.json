@@ -1,0 +1,339 @@
+{
+  "theme": {
+    "ink": "#321b0f",
+    "inkSoft": "#47291a",
+    "paper": "#fbf8f3",
+    "sand": "#f5eee4",
+    "tan": "#cba47c",
+    "green": "#20c46b"
+  },
+  "layout": {
+    "containerWidth": 1280,
+    "sectionSpacing": 112,
+    "cardRadius": 26,
+    "galleryRatio": 0.877,
+    "galleryGap": 3.1,
+    "galleryStagger": 10.2
+  },
+  "brand": {
+    "name": "anindita",
+    "orderButton": "Pesan Sekarang",
+    "tagline": "Agensi kreatif untuk edit video, edit feed, videographer, dan 3D text movement."
+  },
+  "navigation": [
+    {
+      "label": "Beranda",
+      "href": "#beranda"
+    },
+    {
+      "label": "Layanan",
+      "href": "#layanan"
+    },
+    {
+      "label": "Portofolio",
+      "href": "#portofolio"
+    },
+    {
+      "label": "Tentang",
+      "href": "#tentang"
+    },
+    {
+      "label": "Proses",
+      "href": "#proses"
+    },
+    {
+      "label": "Kontak",
+      "href": "#kontak"
+    }
+  ],
+  "hero": {
+    "eyebrow": "Creative agency berbasis project",
+    "title": "Kami mengubah ide\nmenjadi karya visual\nyang bercerita.",
+    "description": "Edit video, edit feed, videographer, hingga 3D text movement. Satu tim kreatif untuk membuat brand Anda tampil memukau dan mudah diingat.",
+    "primaryButton": "Lihat Layanan",
+    "whatsappButton": "Chat via WhatsApp",
+    "stats": [
+      {
+        "value": "150+",
+        "label": "Project selesai"
+      },
+      {
+        "value": "60+",
+        "label": "Klien puas"
+      },
+      {
+        "value": "5",
+        "label": "Layanan kreatif"
+      }
+    ],
+    "gallery": [
+      {
+        "label": "Edit Video",
+        "start": "#79553c",
+        "end": "#d1aa81"
+      },
+      {
+        "label": "Edit Feed",
+        "start": "#977557",
+        "end": "#e8d2b7"
+      },
+      {
+        "label": "3D Text",
+        "start": "#795338",
+        "end": "#a16f4d"
+      },
+      {
+        "label": "Videographer",
+        "start": "#68432d",
+        "end": "#9c6c4d"
+      }
+    ]
+  },
+  "serviceRibbon": [
+    "Edit Video",
+    "Edit Feed",
+    "Videographer",
+    "3D Text Movement",
+    "Motion Graphic",
+    "Content Package"
+  ],
+  "servicesHeading": {
+    "eyebrow": "Layanan kami",
+    "title": "Semua kebutuhan visual brand\nAnda, dalam satu tim.",
+    "description": "Harga di bawah adalah contoh. Ubah sesuai tarif Anda.",
+    "priceLabel": "Mulai dari",
+    "addButton": "Tambah"
+  },
+  "services": [
+    {
+      "id": "edit-video",
+      "icon": "Ã¢â€“Â£",
+      "name": "Edit Video",
+      "description": "Reels, TikTok, YouTube: cutting rapi, color grading, subtitle, dan sound design.",
+      "price": 150000
+    },
+    {
+      "id": "edit-feed",
+      "icon": "Ã¢â€“Â¦",
+      "name": "Edit Feed",
+      "description": "Tata letak feed Instagram yang konsisten: carousel, reels, dan paket warna brand.",
+      "price": 250000
+    },
+    {
+      "id": "videographer",
+      "icon": "Ã¢â€“Â§",
+      "name": "Videographer",
+      "description": "Shooting profesional untuk produk, event, dan company profile lengkap dengan crew.",
+      "price": 1500000
+    },
+    {
+      "id": "3d-text",
+      "icon": "Ã¢â€”â€°",
+      "name": "3D Text Movement",
+      "description": "Teks 3D bergerak yang memberi penampilan unik, lebih kuat, dan dinamis.",
+      "price": 350000
+    },
+    {
+      "id": "motion-graphic",
+      "icon": "Ã¢Å“Â¦",
+      "name": "Motion Graphic",
+      "description": "Animasi logo, infografis, dan elemen motion untuk mempercantik cerita brand.",
+      "price": 400000
+    },
+    {
+      "id": "content-package",
+      "icon": "Ã¢â€“Â¤",
+      "name": "Paket Konten Bulanan",
+      "description": "Paket hemat: video, feed, dan konsultasi konten dalam satu bundel.",
+      "price": 2500000
+    }
+  ],
+  "portfolioHeading": {
+    "eyebrow": "Portofolio",
+    "title": "Karya terpilih dari project yang\nsudah kami kerjakan.",
+    "viewAllButton": "Lihat Semua Karya",
+    "viewAllNote": "Gerai tumbuh & nama klien dengan karya Anda."
+  },
+  "portfolioFilters": [
+    {
+      "label": "Semua",
+      "value": "Semua"
+    },
+    {
+      "label": "Edit Video",
+      "value": "Edit Video"
+    },
+    {
+      "label": "Edit Feed",
+      "value": "Edit Feed"
+    },
+    {
+      "label": "Videographer",
+      "value": "Videographer"
+    },
+    {
+      "label": "3D",
+      "value": "3D Text Movement"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Reels Brand Skincare",
+      "category": "Edit Video",
+      "client": "Lumi Beauty",
+      "year": "2025",
+      "colors": [
+        "#593a28",
+        "#d0a77c"
+      ]
+    },
+    {
+      "name": "Intro 3D Grand Opening",
+      "category": "3D Text Movement",
+      "client": "Toko Nusantara",
+      "year": "2025",
+      "colors": [
+        "#4c2b1c",
+        "#906146"
+      ]
+    },
+    {
+      "name": "Feed Instagram Kafe",
+      "category": "Edit Feed",
+      "client": "Kopi Senja",
+      "year": "2025",
+      "colors": [
+        "#b98961",
+        "#593725"
+      ]
+    },
+    {
+      "name": "Company Profile Manufaktur",
+      "category": "Videographer",
+      "client": "PT Maju Jaya",
+      "year": "2024",
+      "colors": [
+        "#8b6545",
+        "#e7d0b4"
+      ]
+    },
+    {
+      "name": "Highlight Wedding Reels",
+      "category": "Edit Video",
+      "client": "Rina & Dimas",
+      "year": "2024",
+      "colors": [
+        "#5e3a26",
+        "#24140d"
+      ]
+    },
+    {
+      "name": "Logo Reveal Studio",
+      "category": "Motion Graphic",
+      "client": "Studio Awan",
+      "year": "2024",
+      "colors": [
+        "#c2a184",
+        "#4b2d1c"
+      ]
+    }
+  ],
+  "about": {
+    "eyebrow": "Tentang kami",
+    "title": "Studio kreatif yang berfokus\npada hasil setiap project.",
+    "description": "Anindita adalah agensi kreatif yang bekerja per project. Kami memadukan sentuhan visual yang hangat dengan proses kerja yang jelas, sehingga ide Anda tidak hanya terlihat bagus, tetapi juga tepat sasaran.",
+    "imageColors": [
+      "#563522",
+      "#a27a56",
+      "#c9a27b"
+    ],
+    "features": [
+      {
+        "icon": "Ã¢Å“Â¦",
+        "title": "Fokus pada project",
+        "description": "Setiap brief ditangani dengan tim dan target yang jelas."
+      },
+      {
+        "icon": "Ã¢â€”Â·",
+        "title": "Tepat waktu",
+        "description": "Jadwal produksi disepakati sejak awal dan diperbarui berkala."
+      },
+      {
+        "icon": "Ã¢Å“â€œ",
+        "title": "Revisi transparan",
+        "description": "Jumlah revisi tertulis di awal, tanpa biaya tersembunyi."
+      },
+      {
+        "icon": "Ã¢â€“Â§",
+        "title": "Satu tim, banyak layanan",
+        "description": "Video, feed, dan motion dikerjakan dengan gaya yang konsisten."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Proses kerja",
+    "title": "Dari chat pertama sampai hasil akhir, semuanya terarah.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Konsultasi",
+        "description": "Ceritakan kebutuhan Anda dan kami bantu pilih layanan yang tepat."
+      },
+      {
+        "number": "02",
+        "title": "Pilih & checkout",
+        "description": "Tentukan layanan yang diinginkan, lalu pilih kirim lewat WhatsApp."
+      },
+      {
+        "number": "03",
+        "title": "Produksi & revisi",
+        "description": "Tim kami mengerjakan, Anda memberi masukan sesuai jadwal revisi."
+      },
+      {
+        "number": "04",
+        "title": "Hasil dikirim",
+        "description": "File final dikirim dalam format siap pakai untuk semua platform."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimoni",
+    "title": "Apa kata klien yang sudah bekerja sama dengan kami.",
+    "items": [
+      {
+        "quote": "Hasil editing rapi dan sesuai brief. Revisi juga cepat, sangat membantu konten bulanan kami.",
+        "name": "Mika Klien",
+        "role": "Pemilik Brand Skincare"
+      },
+      {
+        "quote": "Teks 3D untuk grand opening kami terlihat keren. Banyak yang tanya dibuat di mana.",
+        "name": "Nana Klien",
+        "role": "Owner Toko Retail"
+      },
+      {
+        "quote": "Proses pesanan lewat WhatsApp sangat mudah, semua detail langsung tercatat.",
+        "name": "Kama Klien",
+        "role": "Marketing Manager"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Punya project? Ayo kita\nbicarakan.",
+    "description": "Pilih layanan, isi brief singkat, dan pesanan Anda langsung terkirim ke WhatsApp kami.",
+    "whatsappButton": "Chat via WhatsApp",
+    "cartButton": "Buka Keranjang"
+  },
+  "footer": {
+    "servicesTitle": "Layanan",
+    "companyTitle": "Perusahaan",
+    "contactTitle": "Kontak",
+    "checkoutLabel": "Checkout",
+    "description": "Agensi kreatif untuk edit video, edit feed, videographer, dan 3D text movement.",
+    "whatsappDisplay": "087-3381-2033",
+    "whatsappNumber": "628733812033",
+    "email": "hello@anindita.id",
+    "instagramHandle": "@anindita.creative",
+    "instagramUrl": "https://instagram.com/anindita.creative",
+    "copyright": "Ã‚Â© 2025 Anindita Creative. Semua hak cipta dilindungi."
+  }
+}
