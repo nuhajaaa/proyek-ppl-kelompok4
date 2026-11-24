@@ -1,166 +1,697 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#321b0f">
-    <meta name="description" content="Anindita Creative membantu brand bercerita lewat video, edit feed, videografi, dan motion graphic.">
-    <title>Anindita Creative — Ceritakan Brand Anda</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./app.js" defer></script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="wordmark" href="#beranda" aria-label="Anindita, ke beranda">anindita</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Buka navigasi">
-        <span></span><span></span>
-      </button>
-      <nav class="primary-navigation" id="primary-navigation" aria-label="Navigasi utama">
-        <a href="#beranda">Beranda</a>
-        <a href="#layanan">Layanan</a>
-        <a href="#portofolio">Portofolio</a>
-        <a href="#tentang">Tentang</a>
-        <a href="#proses">Proses</a>
-        <a href="#kontak">Kontak</a>
-      </nav>
-      <div class="header-actions">
-        <button class="cart-button" type="button" aria-label="Buka keranjang" aria-expanded="false">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="10" cy="19" r="1"></circle><circle cx="18" cy="19" r="1"></circle></svg>
-          <span class="cart-count" aria-live="polite">0</span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anindita — Creative Agency Berbasis Project</title>
+  <meta name="description" content="Edit video, edit feed, videographer, hingga 3D text movement. Satu tim kreatif untuk membuat brand Anda tampil memukau dan mudah diingat.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22serif%22 fill=%22%2326160e%22>a</text></svg>">
+</head>
+<body>
+
+  <!-- Site Header (Dark Theme on Hero) -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#beranda" class="wordmark light" aria-label="anindita home">anindita</a>
+
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigasi menu">
+          &#9776;
         </button>
-        <a class="button button-light header-order" href="#layanan">Pesan Sekarang</a>
+
+        <nav class="nav-links" id="mainNavLinks" aria-label="Navigasi Utama">
+          <a href="#beranda" class="nav-link active">Beranda</a>
+          <a href="#layanan" class="nav-link">Layanan</a>
+          <a href="#portofolio" class="nav-link">Portofolio</a>
+          <a href="#tentang" class="nav-link">Tentang</a>
+          <a href="#proses" class="nav-link">Proses</a>
+          <a href="#kontak" class="nav-link">Kontak</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="cart-icon-btn" data-open-cart aria-label="Buka Keranjang">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge" data-cart-badge>3</span>
+          </button>
+          <a href="#layanan" class="btn btn-white btn-sm header-order-btn">Pesan Sekarang</a>
+        </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero" id="beranda">
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <span class="eyebrow eyebrow-outline" id="hero-eyebrow">Creative agency berbasis project</span>
-            <h1 class="hero-title">Kami mengubah ide<br class="desktop-break"> menjadi karya visual<br class="desktop-break"> yang bercerita.</h1>
-            <p class="hero-description">Edit video, edit feed, videographer, hingga 3D text movement. Satu tim kreatif untuk membuat brand Anda tampil memukau dan mudah diingat.</p>
-            <div class="hero-actions">
-              <a class="button button-light hero-primary" href="#layanan">Lihat Layanan</a>
-              <a class="button button-green hero-whatsapp" href="https://wa.me/628733812033?text=Halo%20Anindita%2C%20saya%20ingin%20konsultasi%20project." target="_blank" rel="noreferrer">◉&nbsp; Chat via WhatsApp</a>
+  <!-- Hero Section -->
+  <section class="hero-section" id="beranda">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          <span class="eyebrow-pill">CREATIVE AGENCY BERBASIS PROJECT</span>
+          <h1>Kami mengubah ide<br>menjadi karya visual<br>yang bercerita.</h1>
+          <p class="hero-desc">
+            Edit video, edit feed, videographer, hingga 3D text movement. Satu tim kreatif untuk membuat brand Anda tampil memukau dan mudah diingat.
+          </p>
+          <div class="hero-buttons">
+            <a href="#layanan" class="btn btn-white">Lihat Layanan</a>
+            <a href="https://wa.me/6285733812033?text=Halo%20Anindita%20Creative%2C%20saya%20tertarik%20untuk%20konsultasi%20project." target="_blank" rel="noopener" class="btn btn-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 2C6.496 2 2 6.496 2 12.031c0 1.8.477 3.553 1.385 5.105L2 22l4.984-1.332a9.975 9.975 0 0 0 5.047 1.363h.004c5.535 0 10.031-4.496 10.031-10.031 0-2.68-1.043-5.199-2.937-7.094A9.971 9.971 0 0 0 12.031 2zm5.82 14.184c-.246.688-1.422 1.316-1.957 1.398-.492.078-1.137.11-3.668-.934-2.73-1.129-4.508-3.902-4.645-4.086-.137-.184-1.109-1.477-1.109-2.812 0-1.336.703-1.996.953-2.266.246-.27.535-.336.715-.336.18 0 .36.004.516.012.164.008.383-.062.598.453.227.543.77 1.883.836 2.02.066.137.11.297.02.477-.09.18-.137.293-.27.453-.137.16-.289.36-.41.48-.137.137-.281.285-.121.562.16.273.711 1.172 1.527 1.898 1.051.934 1.938 1.223 2.215 1.36.277.137.441.117.605-.07.164-.188.703-.816.891-1.098.188-.281.375-.234.629-.141.254.094 1.617.762 1.895.902.277.141.465.211.535.328.07.117.07.68-.176 1.368z"/>
+              </svg>
+              Chat via WhatsApp
+            </a>
+          </div>
+
+          <!-- Hero Stats with Divider -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">150+</span>
+              <span class="stat-label">Project selesai</span>
             </div>
-            <div class="hero-stats" id="hero-stats" aria-label="Statistik Anindita Creative">
-              <div><strong>150+</strong><span>Project selesai</span></div>
-              <div><strong>60+</strong><span>Klien puas</span></div>
-              <div><strong>5</strong><span>Layanan kreatif</span></div>
+            <div class="stat-item">
+              <span class="stat-value">60+</span>
+              <span class="stat-label">Klien puas</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">5</span>
+              <span class="stat-label">Layanan kreatif</span>
             </div>
           </div>
-          <div class="hero-gallery" id="hero-gallery" aria-label="Contoh layanan kreatif">
-            <div class="hero-tile tile-video"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">Edit Video</span></div>
-            <div class="hero-tile tile-feed"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">Edit Feed</span></div>
-            <div class="hero-tile tile-text"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">3D Text</span></div>
-            <div class="hero-tile tile-videographer"><span class="play-icon" aria-hidden="true">▶</span><span class="tile-label">Videographer</span></div>
+        </div>
+
+        <!-- Hero Right: 2-Column Staggered Showcase matching Figma -->
+        <div class="hero-showcase">
+          <!-- Left Column (Tall on top, Square on bottom) -->
+          <div class="showcase-col col-left">
+            <div class="showcase-tile tile-tall" data-preview-title="Reels Skincare Lumi Beauty" data-preview-cat="Edit Video" style="background: linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%);">
+              <div class="showcase-play-center" aria-hidden="true">&#9658;</div>
+              <span class="showcase-badge">Edit Video</span>
+            </div>
+
+            <div class="showcase-tile tile-square" data-preview-title="3D Text Intro Toko Nusantara" data-preview-cat="3D Text" style="background: linear-gradient(135deg, #4d2d1d 0%, #a47650 50%, #442416 100%);">
+              <div class="showcase-play-center" aria-hidden="true">&#9658;</div>
+              <span class="showcase-badge">3D Text</span>
+            </div>
+          </div>
+
+          <!-- Right Column (Square on top, Tall on bottom - with stagger offset) -->
+          <div class="showcase-col col-right">
+            <div class="showcase-tile tile-square" data-preview-title="Instagram Feed Kopi Senja" data-preview-cat="Edit Feed" style="background: linear-gradient(135deg, #7c4c31 0%, #462617 100%);">
+              <div class="showcase-play-center" aria-hidden="true">&#9658;</div>
+              <span class="showcase-badge">Edit Feed</span>
+            </div>
+
+            <div class="showcase-tile tile-tall" data-preview-title="Company Profile PT Maju Jaya" data-preview-cat="Videographer" style="background: linear-gradient(135deg, #d8b48f 0%, #7e5539 60%, #3a2013 100%);">
+              <div class="showcase-play-center" aria-hidden="true">&#9658;</div>
+              <span class="showcase-badge">Videographer</span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <nav class="service-ribbon" id="service-ribbon" aria-label="Kategori layanan">
-        <a href="#layanan">Edit Video</a>
-        <a href="#layanan">Edit Feed</a>
-        <a href="#layanan">Videographer</a>
-        <a href="#layanan">3D Text Movement</a>
-        <a href="#layanan">Motion Graphic</a>
-        <a href="#layanan">Content Package</a>
-      </nav>
+  <!-- Ticker / Infinite Marquee Ribbon Strip -->
+  <div class="ticker-strip" aria-label="Layanan unggulan">
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <span>EDIT VIDEO</span>
+        <span>EDIT FEED</span>
+        <span>VIDEOGRAPHER</span>
+        <span>3D TEXT MOVEMENT</span>
+        <span>MOTION GRAPHIC</span>
+        <span>CONTENT PACKAGE</span>
+      </div>
+      <div class="ticker-content" aria-hidden="true">
+        <span>EDIT VIDEO</span>
+        <span>EDIT FEED</span>
+        <span>VIDEOGRAPHER</span>
+        <span>3D TEXT MOVEMENT</span>
+        <span>MOTION GRAPHIC</span>
+        <span>CONTENT PACKAGE</span>
+      </div>
+    </div>
+  </div>
 
-      <section class="section services-section" id="layanan">
-        <div class="section-heading services-heading">
+  <!-- Layanan Kami Section -->
+  <section class="section" id="layanan">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">LAYANAN KAMI</span>
+        <h2 class="section-title">Semua kebutuhan visual brand<br>Anda, dalam satu tim.</h2>
+        <p class="section-subtitle">Pilih layanan visual yang Anda butuhkan. Tambahkan ke keranjang untuk estimasi biaya dan konsultasi langsung.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. Edit Video -->
+        <div class="service-card">
           <div>
-            <span class="eyebrow" id="services-eyebrow">Layanan kami</span>
-            <h2 id="services-title">Semua kebutuhan visual brand<br class="desktop-break"> Anda, dalam satu tim.</h2>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+              </svg>
+            </div>
+            <h3>Edit Video</h3>
+            <p class="service-desc">Reels, TikTok, YouTube: cutting rapi, color grading, subtitle, dan sound design.</p>
           </div>
-          <p id="services-description">Harga di bawah adalah contoh. Ubah sesuai tarif Anda.</p>
+          <div class="service-footer">
+            <div class="service-price-block">
+              <span class="service-price-label">Mulai dari</span>
+              <span class="service-price-amount">Rp 150.000</span>
+            </div>
+            <button type="button" class="btn-add-service" data-service-id="edit-video" data-service-title="Edit Video" data-service-price="300000" data-service-pkg="Paket Reels" data-service-gradient="linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%)">
+              &plus; Tambah
+            </button>
+          </div>
         </div>
-        <div class="service-grid" id="service-grid"></div>
-      </section>
 
-      <section class="section portfolio-section" id="portofolio">
-        <div class="section-heading portfolio-heading">
+        <!-- 2. Edit Feed -->
+        <div class="service-card">
           <div>
-            <span class="eyebrow" id="portfolio-eyebrow">Portofolio</span>
-            <h2 id="portfolio-title">Karya terpilih dari project yang<br class="desktop-break"> sudah kami kerjakan.</h2>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <h3>Edit Feed</h3>
+            <p class="service-desc">Tata letak feed Instagram yang konsisten: carousel, retouch, dan palet warna brand.</p>
           </div>
-          <div class="portfolio-filters" id="portfolio-filters" role="group" aria-label="Filter portofolio">
-            <button type="button" class="filter-button is-active" data-filter="Semua" aria-pressed="true">Semua</button>
-            <button type="button" class="filter-button" data-filter="Edit Video" aria-pressed="false">Edit Video</button>
-            <button type="button" class="filter-button" data-filter="Edit Feed" aria-pressed="false">Edit Feed</button>
-            <button type="button" class="filter-button" data-filter="Videographer" aria-pressed="false">Videographer</button>
-            <button type="button" class="filter-button" data-filter="3D Text Movement" aria-pressed="false">3D</button>
-          </div>
-        </div>
-        <div class="project-grid" id="project-grid"></div>
-        <div class="portfolio-more">
-          <a class="button button-dark" id="portfolio-view-all" href="#kontak">Lihat Semua Karya</a>
-          <span id="portfolio-view-all-note">Gerai tumbuh &amp; nama klien dengan karya Anda.</span>
-        </div>
-      </section>
-
-      <section class="section about-section" id="tentang">
-        <div class="about-image" role="img" aria-label="Visual kreatif bernuansa cokelat"></div>
-        <div class="about-copy">
-          <span class="eyebrow" id="about-eyebrow">Tentang kami</span>
-          <h2 id="about-title">Studio kreatif yang berfokus<br class="desktop-break"> pada hasil setiap project.</h2>
-          <p id="about-description">Anindita adalah agensi kreatif yang bekerja per project. Kami memadukan sentuhan visual yang hangat dengan proses kerja yang jelas, sehingga ide Anda tidak hanya terlihat bagus, tetapi juga tepat sasaran.</p>
-          <div class="feature-grid" id="feature-grid">
-            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">✦</span><h3>Fokus pada project</h3><p>Setiap brief ditangani dengan tim dan target yang jelas.</p></article>
-            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">◷</span><h3>Tepat waktu</h3><p>Jadwal produksi disepakati sejak awal dan diperbarui berkala.</p></article>
-            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">✓</span><h3>Revisi transparan</h3><p>Jumlah revisi tertulis di awal, tanpa biaya tersembunyi.</p></article>
-            <article class="feature-card"><span class="icon-bubble" aria-hidden="true">▧</span><h3>Satu tim, banyak layanan</h3><p>Video, feed, dan motion dikerjakan dengan gaya yang konsisten.</p></article>
+          <div class="service-footer">
+            <div class="service-price-block">
+              <span class="service-price-label">Mulai dari</span>
+              <span class="service-price-amount">Rp 250.000</span>
+            </div>
+            <button type="button" class="btn-add-service" data-service-id="edit-feed" data-service-title="Edit Feed Instagram" data-service-price="250000" data-service-pkg="Carousel 9 slide" data-service-gradient="linear-gradient(135deg, #7c4c31 0%, #462617 100%)">
+              &plus; Tambah
+            </button>
           </div>
         </div>
-      </section>
 
-      <section class="section process-section" id="proses">
-        <span class="eyebrow eyebrow-muted" id="process-eyebrow">Proses kerja</span>
-        <h2 id="process-title">Dari chat pertama sampai hasil akhir, semuanya terarah.</h2>
-        <div class="process-grid" id="process-grid">
-          <article class="process-card"><span>01</span><h3>Konsultasi</h3><p>Ceritakan kebutuhan Anda dan kami bantu pilih layanan yang tepat.</p></article>
-          <article class="process-card"><span>02</span><h3>Pilih &amp; checkout</h3><p>Tentukan layanan yang diinginkan, lalu pilih kirim lewat WhatsApp.</p></article>
-          <article class="process-card"><span>03</span><h3>Produksi &amp; revisi</h3><p>Tim kami mengerjakan, Anda memberi masukan sesuai jadwal revisi.</p></article>
-          <article class="process-card"><span>04</span><h3>Hasil dikirim</h3><p>File final dikirim dalam format siap pakai untuk semua platform.</p></article>
-        </div>
-      </section>
-
-      <section class="section testimonials-section">
-        <span class="eyebrow" id="testimonials-eyebrow">Testimoni</span>
-        <h2 id="testimonials-title">Apa kata klien yang sudah bekerja sama dengan kami.</h2>
-        <div class="testimonial-grid" id="testimonial-grid"></div>
-        <div class="contact-banner" id="kontak">
+        <!-- 3. Videographer -->
+        <div class="service-card">
           <div>
-            <h2 id="contact-title">Punya project? Ayo kita<br class="desktop-break"> bicarakan.</h2>
-            <p id="contact-description">Pilih layanan, isi brief singkat, dan pesanan Anda langsung terkirim ke WhatsApp kami.</p>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 7l-7 5 7 5V7z"></path>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
+            </div>
+            <h3>Videographer</h3>
+            <p class="service-desc">Shooting profesional untuk produk, event, dan company profile lengkap dengan crew.</p>
           </div>
-          <div class="contact-actions">
-            <a class="button button-green contact-whatsapp" href="https://wa.me/628733812033?text=Halo%20Anindita%2C%20saya%20ingin%20membicarakan%20project." target="_blank" rel="noreferrer">◉&nbsp; Chat via WhatsApp</a>
-            <button class="button button-light open-cart" id="contact-cart-button" type="button">Buka Keranjang</button>
+          <div class="service-footer">
+            <div class="service-price-block">
+              <span class="service-price-label">Mulai dari</span>
+              <span class="service-price-amount">Rp 1.500.000</span>
+            </div>
+            <button type="button" class="btn-add-service" data-service-id="videographer" data-service-title="Videographer" data-service-price="1500000" data-service-pkg="Shooting Half Day + Crew" data-service-gradient="linear-gradient(135deg, #d8b48f 0%, #7e5539 60%, #3a2013 100%)">
+              &plus; Tambah
+            </button>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="footer-main">
+        <!-- 4. 3D Text Movement -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3>3D Text Movement</h3>
+            <p class="service-desc">Teks 3D bergerak yang mencuri perhatian untuk intro, judul, dan iklan.</p>
+          </div>
+          <div class="service-footer">
+            <div class="service-price-block">
+              <span class="service-price-label">Mulai dari</span>
+              <span class="service-price-amount">Rp 350.000</span>
+            </div>
+            <button type="button" class="btn-add-service" data-service-id="3d-text" data-service-title="3D Text Movement" data-service-price="350000" data-service-pkg="Intro 10 detik" data-service-gradient="linear-gradient(135deg, #4d2d1d 0%, #a47650 50%, #442416 100%)">
+              &plus; Tambah
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. Motion Graphic -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Motion Graphic</h3>
+            <p class="service-desc">Animasi logo, infografis, dan elemen motion untuk memperkuat cerita brand.</p>
+          </div>
+          <div class="service-footer">
+            <div class="service-price-block">
+              <span class="service-price-label">Mulai dari</span>
+              <span class="service-price-amount">Rp 400.000</span>
+            </div>
+            <button type="button" class="btn-add-service" data-service-id="motion-graphic" data-service-title="Motion Graphic" data-service-price="400000" data-service-pkg="Animasi Logo" data-service-gradient="linear-gradient(135deg, #b98961 0%, #593725 100%)">
+              &plus; Tambah
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. Paket Konten Bulanan -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3>Paket Konten Bulanan</h3>
+            <p class="service-desc">Paket hemat: video, feed, dan konsultasi konten dalam satu kontrak bulanan.</p>
+          </div>
+          <div class="service-footer">
+            <div class="service-price-block">
+              <span class="service-price-label">Mulai dari</span>
+              <span class="service-price-amount">Rp 2.500.000</span>
+            </div>
+            <button type="button" class="btn-add-service" data-service-id="paket-bulanan" data-service-title="Paket Konten Bulanan" data-service-price="2500000" data-service-pkg="8 Reels + 12 Feed" data-service-gradient="linear-gradient(135deg, #8b6545 0%, #381f12 100%)">
+              &plus; Tambah
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portofolio Section -->
+  <section class="section" id="portofolio">
+    <div class="container">
+      <div class="portfolio-header-wrap">
+        <div>
+          <span class="eyebrow">PORTOFOLIO</span>
+          <h2 class="section-title">Karya terpilih dari project yang<br>sudah kami kerjakan.</h2>
+        </div>
+        <div class="portfolio-filters" role="tablist">
+          <button type="button" class="filter-btn active" data-filter="all">Semua</button>
+          <button type="button" class="filter-btn" data-filter="video">Edit Video</button>
+          <button type="button" class="filter-btn" data-filter="feed">Edit Feed</button>
+          <button type="button" class="filter-btn" data-filter="videographer">Videographer</button>
+          <button type="button" class="filter-btn" data-filter="3d">3D</button>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- 1 -->
+        <div class="portfolio-card" data-category="video" data-preview-title="Reels Brand Skincare" data-preview-cat="Lumi Beauty • 2025">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #c59b6d 0%, #875c39 50%, #432415 100%);">
+            <span class="portfolio-badge">Edit Video</span>
+            <div class="portfolio-play-center" aria-hidden="true">&#9658;</div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>Reels Brand Skincare</h3>
+            <p>Lumi Beauty &bull; 2025</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="portfolio-card" data-category="3d" data-preview-title="Intro 3D Grand Opening" data-preview-cat="Toko Nusantara • 2025">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #442416 0%, #8c5d3b 50%, #3a1e12 100%);">
+            <span class="portfolio-badge">3D Text Movement</span>
+            <div class="portfolio-play-center" aria-hidden="true">&#9658;</div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>Intro 3D Grand Opening</h3>
+            <p>Toko Nusantara &bull; 2025</p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="portfolio-card" data-category="feed" data-preview-title="Feed Instagram Kafe" data-preview-cat="Kopi Senja • 2025">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #aa7850 0%, #5d3620 100%);">
+            <span class="portfolio-badge">Edit Feed</span>
+            <div class="portfolio-play-center" aria-hidden="true">&#9658;</div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>Feed Instagram Kafe</h3>
+            <p>Kopi Senja &bull; 2025</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="portfolio-card" data-category="videographer" data-preview-title="Company Profile Manufaktur" data-preview-cat="PT Maju Jaya • 2024">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #d8b48f 0%, #845938 60%, #3a2013 100%);">
+            <span class="portfolio-badge">Videographer</span>
+            <div class="portfolio-play-center" aria-hidden="true">&#9658;</div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>Company Profile Manufaktur</h3>
+            <p>PT Maju Jaya &bull; 2024</p>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="portfolio-card" data-category="video" data-preview-title="Highlight Wedding Reels" data-preview-cat="Rina & Dimas • 2024">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #5c3520 0%, #9e6d47 50%, #29150b 100%);">
+            <span class="portfolio-badge">Edit Video</span>
+            <div class="portfolio-play-center" aria-hidden="true">&#9658;</div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>Highlight Wedding Reels</h3>
+            <p>Rina & Dimas &bull; 2024</p>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="portfolio-card" data-category="3d" data-preview-title="Logo Reveal Studio" data-preview-cat="Studio Aksara • 2024">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #bc936f 0%, #683e23 60%, #2e160a 100%);">
+            <span class="portfolio-badge">Motion Graphic</span>
+            <div class="portfolio-play-center" aria-hidden="true">&#9658;</div>
+          </div>
+          <div class="portfolio-meta">
+            <h3>Logo Reveal Studio</h3>
+            <p>Studio Aksara &bull; 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-cta-center">
+        <a href="#layanan" class="btn btn-dark">Lihat Semua Karya</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Kami Section -->
+  <section class="section" id="tentang">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">TENTANG KAMI</span>
+        <h2 class="section-title">Studio kreatif yang berfokus pada hasil setiap project.</h2>
+        <p class="section-subtitle">
+          Anindita adalah agensi kreatif yang berkerja per project. Kami memadukan sentuhan visual yang hangat dengan proses kerja yang jelas, sehingga ide Anda tidak hanya terlihat bagus, tetapi juga tepat sasaran.
+        </p>
+      </div>
+
+      <div class="about-features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+          </div>
+          <h3>Fokus pada project</h3>
+          <p>Setiap brief ditangani dengan tim dan target yang jelas.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3>Tepat waktu</h3>
+          <p>Jadwal produksi disepakati sejak awal dan dikabari berkala.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+          </div>
+          <h3>Revisi transparan</h3>
+          <p>Jumlah revisi tertulis di awal, tanpa biaya tersembunyi.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h3>Satu tim, banyak layanan</h3>
+          <p>Video, feed, dan motion dikerjakan dengan gaya yang konsisten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proses Kerja Section (Dark Theme) -->
+  <section class="section section-dark" id="proses">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">PROSES KERJA</span>
+        <h2 class="section-title">Dari chat pertama sampai hasil akhir, semuanya terarah.</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <span class="process-step-num">01</span>
+          <h3>Konsultasi</h3>
+          <p>Ceritakan kebutuhan Anda dan kami bantu pilih layanan yang tepat.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-num">02</span>
+          <h3>Pilih & checkout</h3>
+          <p>Tambahkan layanan ke keranjang, isi brief, lalu kirim lewat WhatsApp.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-num">03</span>
+          <h3>Produksi & revisi</h3>
+          <p>Tim kami mengerjakan, Anda memberi masukan sesuai jatah revisi.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step-num">04</span>
+          <h3>Hasil dikirim</h3>
+          <p>File final dikirim dalam format siap pakai untuk semua platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni Section -->
+  <section class="section" id="testimoni">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">TESTIMONI</span>
+        <h2 class="section-title">Apa kata klien yang sudah bekerja sama dengan kami.</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars" aria-label="5 bintang">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <p class="testimonial-quote">
+              &ldquo;Hasil editnya rapi dan sesuai brief. Revisi juga cepat, sangat membantu konten bulanan kami.&rdquo;
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div class="author-info">
+              <h4>Mika Klien</h4>
+              <p>Pemilik Brand Skincare</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars" aria-label="5 bintang">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <p class="testimonial-quote">
+              &ldquo;Teks 3D untuk grand opening kami terlihat keren. Banyak yang tanya dibuat di mana.&rdquo;
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">N</div>
+            <div class="author-info">
+              <h4>Nana Klien</h4>
+              <p>Owner Toko Retail</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars" aria-label="5 bintang">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <p class="testimonial-quote">
+              &ldquo;Proses pesan lewat WhatsApp sangat mudah, semua detail langsung tercatat.&rdquo;
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">K</div>
+            <div class="author-info">
+              <h4>Kama Klien</h4>
+              <p>Marketing Manager</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-banner-wrap" id="kontak">
+    <div class="container">
+      <div class="cta-banner-card">
+        <div class="cta-banner-text">
+          <h2>Punya project? Ayo kita<br>bicarakan.</h2>
+          <p>Pilih layanan, isi brief singkat, dan pesanan Anda langsung terkirim ke WhatsApp kami.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a href="https://wa.me/6285733812033?text=Halo%20Anindita%20Creative%2C%20saya%20punya%20project%20yang%20ingin%20dibicarakan." target="_blank" rel="noopener" class="btn btn-wa btn-full">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 2C6.496 2 2 6.496 2 12.031c0 1.8.477 3.553 1.385 5.105L2 22l4.984-1.332a9.975 9.975 0 0 0 5.047 1.363h.004c5.535 0 10.031-4.496 10.031-10.031 0-2.68-1.043-5.199-2.937-7.094A9.971 9.971 0 0 0 12.031 2zm5.82 14.184c-.246.688-1.422 1.316-1.957 1.398-.492.078-1.137.11-3.668-.934-2.73-1.129-4.508-3.902-4.645-4.086-.137-.184-1.109-1.477-1.109-2.812 0-1.336.703-1.996.953-2.266.246-.27.535-.336.715-.336.18 0 .36.004.516.012.164.008.383-.062.598.453.227.543.77 1.883.836 2.02.066.137.11.297.02.477-.09.18-.137.293-.27.453-.137.16-.289.36-.41.48-.137.137-.281.285-.121.562.16.273.711 1.172 1.527 1.898 1.051.934 1.938 1.223 2.215 1.36.277.137.441.117.605-.07.164-.188.703-.816.891-1.098.188-.281.375-.234.629-.141.254.094 1.617.762 1.895.902.277.141.465.211.535.328.07.117.07.68-.176 1.368z"/>
+            </svg>
+            Chat via WhatsApp
+          </a>
+          <button type="button" class="btn btn-white btn-full" data-open-cart>Buka Keranjang</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
         <div class="footer-brand">
-          <a class="wordmark" href="#beranda">anindita</a>
-          <p id="footer-description">Agensi kreatif untuk edit video, edit feed, videographer, dan 3D text movement.</p>
+          <a href="#beranda" class="wordmark light">anindita</a>
+          <p class="footer-desc">
+            Agensi kreatif untuk edit video, edit feed, videographer, dan 3D text movement.
+          </p>
         </div>
-        <div class="footer-column"><h2 id="footer-services-title">Layanan</h2><div class="footer-links" id="footer-services"></div></div>
-        <div class="footer-column"><h2 id="footer-company-title">Perusahaan</h2><div class="footer-links" id="footer-company"></div></div>
-        <div class="footer-column"><h2 id="footer-contact-title">Kontak</h2><div class="footer-links" id="footer-contact"></div></div>
-      </div>
-      <div class="footer-bottom" id="footer-copyright">© 2025 Anindita Creative. Semua hak cipta dilindungi.</div>
-    </footer>
 
-    <div class="cart-overlay" hidden></div>
-    <aside class="cart-panel" role="dialog" aria-label="Keranjang layanan" aria-modal="false" aria-hidden="true" inert>
-      <div class="cart-panel-header"><h2>Keranjang Anda</h2><button class="cart-close" type="button" aria-label="Tutup keranjang">×</button></div>
-      <div class="cart-items" aria-live="polite"></div>
-      <div class="cart-panel-footer"><p class="cart-total"></p><a class="button button-dark cart-checkout" href="https://wa.me/628733812033?text=Halo%20Anindita%2C%20saya%20ingin%20memesan%20layanan." target="_blank" rel="noreferrer">Lanjutkan via WhatsApp</a></div>
-    </aside>
-    <div class="toast-message" role="status" aria-live="polite"></div>
-  </body>
+        <div class="footer-col">
+          <h4>LAYANAN</h4>
+          <div class="footer-links">
+            <a href="#layanan" class="footer-link">Edit Video</a>
+            <a href="#layanan" class="footer-link">Edit Feed</a>
+            <a href="#layanan" class="footer-link">Videographer</a>
+            <a href="#layanan" class="footer-link">3D Text Movement</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>PERUSAHAAN</h4>
+          <div class="footer-links">
+            <a href="#tentang" class="footer-link">Tentang</a>
+            <a href="#portofolio" class="footer-link">Portofolio</a>
+            <a href="#proses" class="footer-link">Proses Kerja</a>
+            <a href="checkout.html" class="footer-link">Checkout</a>
+            <a href="dashboard.html" class="footer-link" style="color:#d8b48f; font-weight:600;">Panel Dashboard &rarr;</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>KONTAK</h4>
+          <div class="footer-links">
+            <span class="footer-link">WhatsApp: 0857-3381-2033</span>
+            <a href="mailto:hello@anindita.id" class="footer-link">hello@anindita.id</a>
+            <a href="https://instagram.com/anindita.creative" target="_blank" rel="noopener" class="footer-link">@anindita.creative</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Anindita Creative. Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       CART DRAWER OVERLAY (03 Cart Drawer (Overlay).png)
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang Belanja">
+    <div class="drawer-header">
+      <h2 id="drawerCartTitle">Keranjang (3)</h2>
+      <button type="button" class="drawer-close-btn" id="closeCartBtn" aria-label="Tutup keranjang">
+        &times;
+      </button>
+    </div>
+
+    <div class="drawer-body" id="drawerItemList">
+      <!-- Items dynamically populated by js/cart.js -->
+    </div>
+
+    <div class="drawer-empty-state" id="drawerEmpty" style="display:none;">
+      <p>Keranjang Anda masih kosong.</p>
+      <a href="#layanan" class="btn btn-dark btn-sm" onclick="window.cartManager.closeCart();">Pilih Layanan</a>
+    </div>
+
+    <div class="drawer-footer" id="drawerFooter">
+      <div class="drawer-subtotal-row">
+        <span class="label">Subtotal</span>
+        <span class="amount" id="drawerSubtotal">Rp 1.200.000</span>
+      </div>
+      <a href="checkout.html" class="btn btn-dark btn-full">
+        Lanjut ke Checkout
+      </a>
+      <button type="button" class="btn btn-wa btn-full" id="drawerFastWaBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 2C6.496 2 2 6.496 2 12.031c0 1.8.477 3.553 1.385 5.105L2 22l4.984-1.332a9.975 9.975 0 0 0 5.047 1.363h.004c5.535 0 10.031-4.496 10.031-10.031 0-2.68-1.043-5.199-2.937-7.094A9.971 9.971 0 0 0 12.031 2zm5.82 14.184c-.246.688-1.422 1.316-1.957 1.398-.492.078-1.137.11-3.668-.934-2.73-1.129-4.508-3.902-4.645-4.086-.137-.184-1.109-1.477-1.109-2.812 0-1.336.703-1.996.953-2.266.246-.27.535-.336.715-.336.18 0 .36.004.516.012.164.008.383-.062.598.453.227.543.77 1.883.836 2.02.066.137.11.297.02.477-.09.18-.137.293-.27.453-.137.16-.289.36-.41.48-.137.137-.281.285-.121.562.16.273.711 1.172 1.527 1.898 1.051.934 1.938 1.223 2.215 1.36.277.137.441.117.605-.07.164-.188.703-.816.891-1.098.188-.281.375-.234.629-.141.254.094 1.617.762 1.895.902.277.141.465.211.535.328.07.117.07.68-.176 1.368z"/>
+        </svg>
+        Pesan Cepat via WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Interactive Video Preview Modal -->
+  <div class="modal-backdrop" id="videoPreviewModal">
+    <div class="modal-content" style="max-width:540px; text-align:center;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <span class="eyebrow" id="videoModalCategory" style="margin-bottom:0;">EDIT VIDEO</span>
+        <button type="button" class="drawer-close-btn" id="closeVideoModalBtn">&times;</button>
+      </div>
+
+      <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:16px; overflow:hidden; background:linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.3); margin-bottom:20px;">
+        <div style="width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center; color:#23150d; font-size:24px; box-shadow:0 4px 16px rgba(0,0,0,0.25);">
+          &#9658;
+        </div>
+      </div>
+
+      <h3 id="videoModalTitle" style="font-size:20px; font-weight:700; color:var(--text-dark-primary); margin-bottom:8px;">Reels Brand Skincare</h3>
+      <p style="font-size:13.5px; color:var(--text-dark-secondary); margin-bottom:24px;">Project kreatif yang disesuaikan dengan identitas brand, siap dipublikasikan untuk menaikkan engagement konten Anda.</p>
+
+      <div style="display:flex; gap:12px; justify-content:center;">
+        <a href="#layanan" class="btn btn-dark" id="videoModalOrderBtn">Pesan Layanan Serupa</a>
+        <button type="button" class="btn btn-outline-dark" id="videoModalDismissBtn">Tutup Pratinjau</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
