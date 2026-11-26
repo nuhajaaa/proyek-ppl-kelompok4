@@ -1,0 +1,63 @@
+# ==============================================================================
+# Proyek PPL Kelompok 4 - Anindita Creative
+# Git Ignore Configuration
+# ==============================================================================
+
+# Kredensial & Lingkungan Rahasia
+.env
+.env.local
+.env.*.local
+config.js
+landing-page/admin-credentials.json
+admin-credentials.json
+
+# Dependensi & Paket
+node_modules/
+package-lock.json.bak
+pnpm-lock.yaml.bak
+
+# Log Server & Debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Unggahan Media Pengguna / Admin (Agar repo tidak membengkak karena video/foto)
+landing-page/uploads/*
+!landing-page/uploads/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Berkas Sampah Sistem Operasi
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# Konfigurasi Editor & IDE Pribadi
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# Konfigurasi Editor & IDE Pribadi
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace

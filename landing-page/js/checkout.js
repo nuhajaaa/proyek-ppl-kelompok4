@@ -28,24 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const catatanInput = document.getElementById('inputCatatan');
   const agreeCheck = document.getElementById('checkAgree');
 
-  // Pre-seed form fields if empty to match the design screenshot
-  if (namaInput && !namaInput.value) namaInput.placeholder = "Contoh: Budi Santoso";
-  if (brandInput && !brandInput.value) brandInput.placeholder = "Contoh: Kopi Senja";
-
   function getFormValues() {
     return {
-      nama: (namaInput && namaInput.value.trim()) || 'Budi Santoso',
-      hp: (hpInput && hpInput.value.trim()) || '0812 3456 7890',
-      brand: (brandInput && brandInput.value.trim()) || 'Kopi Senja',
-      deadline: (deadlineInput && deadlineInput.value) || '2026-11-30',
-      deadlineFormatted: formatDeadline((deadlineInput && deadlineInput.value) || '2026-11-30'),
+      nama: (namaInput && namaInput.value.trim()) || '',
+      hp: (hpInput && hpInput.value.trim()) || '',
+      brand: (brandInput && brandInput.value.trim()) || '',
+      deadline: (deadlineInput && deadlineInput.value) || '',
+      deadlineFormatted: formatDeadline(deadlineInput && deadlineInput.value),
       link: (linkInput && linkInput.value.trim()) || '',
       catatan: (catatanInput && catatanInput.value.trim()) || ''
     };
   }
 
   function formatDeadline(dateStr) {
-    if (!dateStr) return '30 Nov 2026';
+    if (!dateStr) return '';
     try {
       const d = new Date(dateStr);
       if (isNaN(d.getTime())) return dateStr;
@@ -63,8 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const formVals = getFormValues();
 
     if (waPreviewBubble) {
-      const msg = window.AninditaAPI.generateWhatsAppMessage(formVals, items, finalTotal);
-      waPreviewBubble.textContent = msg;
+      if (items.length === 0 && !formVals.nama) {
+        waPreviewBubble.textContent = '(Pilih layanan dan isi formulir di samping untuk melihat pratinjau pesan WhatsApp secara langsung)';
+      } else {
+        const msg = window.AninditaAPI.generateWhatsAppMessage(formVals, items, finalTotal);
+        waPreviewBubble.textContent = msg;
+      }
     }
   }
 
@@ -89,10 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         cartListEl.innerHTML = items.map((item, index) => {
           const itemTotal = item.price * (item.quantity || 1);
+          const mediaSrc = window.AninditaAPI ? window.AninditaAPI.resolveMediaUrl(item.mediaUrl) : (item.mediaUrl || '');
+          const hasImage = mediaSrc && !(window.AninditaAPI && window.AninditaAPI.isVideoUrl(mediaSrc));
           return `
             <div class="checkout-item-card">
               <div class="checkout-item-left">
-                <div class="item-thumb-md" style="background: ${item.gradient};"></div>
+                <div class="item-thumb-md" style="background: ${item.gradient}; overflow:hidden;">
+                  ${hasImage ? `<img src="${mediaSrc}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">` : ''}
+                </div>
                 <div class="checkout-item-info">
                   <h4>${item.title}</h4>
                   <p class="item-pkg">${item.package || ''}</p>
@@ -220,29 +224,51 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formVals = getFormValues();
+      if (!formVals.nama || !formVals.hp) {
+        alert('Nama lengkap dan nomor WhatsApp wajib diisi sebelum mengirim pesanan.');
+        if (!formVals.nama && namaInput) namaInput.focus();
+        else if (!formVals.hp && hpInput) hpInput.focus();
+        return;
+      }
+
       const subtotal = window.cartManager.getTotal();
       const finalTotal = Math.max(0, subtotal - discountAmount);
 
-      // Save order to Backend / LocalStorage
-      const newOrder = await window.AninditaAPI.createOrder({
-        customerName: formVals.nama,
-        customerPhone: formVals.hp,
-        brandName: formVals.brand,
-        deadline: formVals.deadline,
-        referenceLink: formVals.link,
-        briefNotes: formVals.catatan,
-        items: items,
-        subtotal: subtotal,
-        discount: discountAmount,
-        total: finalTotal
-      });
+      let newOrder;
+      try {
+        sendWaBtn.disabled = true;
+        newOrder = await window.AninditaAPI.createOrder({
+          customerName: formVals.nama,
+          customerPhone: formVals.hp,
+          brandName: formVals.brand,
+          deadline: formVals.deadline,
+          referenceLink: formVals.link,
+          briefNotes: formVals.catatan,
+          items: items,
+          subtotal: subtotal,
+          discount: discountAmount,
+          total: finalTotal
+        });
+      } catch (err) {
+        sendWaBtn.disabled = false;
+        alert('Gagal menyimpan pesanan: ' + err.message);
+        return;
+      }
 
-      // Store current active order ID for confirmation page
+      // Store created order cleanly in sessionStorage for public confirmation page
+      sessionStorage.setItem('anindita_active_order', JSON.stringify(newOrder));
       sessionStorage.setItem('anindita_active_order_id', newOrder.id);
+      sessionStorage.setItem('anindita_order_name', formVals.nama);
+      sessionStorage.setItem('anindita_order_brand', formVals.brand);
+      sessionStorage.setItem('anindita_order_deadline', formVals.deadlineFormatted || formVals.deadline);
+      sessionStorage.setItem('anindita_order_link', formVals.link);
+      sessionStorage.setItem('anindita_order_notes', formVals.catatan);
 
-      // Open WhatsApp directly or redirect to confirmation page
+      // Open WhatsApp directly using dynamic studio WhatsApp number
+      const content = await window.AninditaAPI.getContent();
+      const brandWaNumber = (content.brand && content.brand.whatsappNumber) || '6285733812033';
       const waMsg = window.AninditaAPI.generateWhatsAppMessage(formVals, items, finalTotal);
-      const waUrl = window.AninditaAPI.buildWhatsAppUrl('6285733812033', waMsg);
+      const waUrl = window.AninditaAPI.buildWhatsAppUrl(brandWaNumber, waMsg);
 
       // Open WhatsApp in new tab and redirect current tab to confirmation page
       window.open(waUrl, '_blank');

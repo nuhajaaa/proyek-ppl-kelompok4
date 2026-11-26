@@ -3,47 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Admin Studio — anindita</title>
+  <title>Panel Admin CMS Studio — anindita</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22serif%22 fill=%22%2326160e%22>a</text></svg>">
 </head>
-<body>
+<body style="background: #faf6f1;">
 
-  <div class="admin-layout">
-    <!-- Sidebar -->
-    <aside class="admin-sidebar">
-      <div class="admin-sidebar-brand">
-        <a href="index.html" class="wordmark light">anindita</a>
-        <small>ADMIN STUDIO &bull; BACKEND READY</small>
+  <!-- ==========================================================================
+       1. LOGIN GATE VIEW (Ditampilkan jika belum login)
+       ========================================================================== -->
+  <div id="loginGateView" class="login-gate-wrap">
+    <div class="login-card">
+      <div class="login-header">
+        <span class="wordmark light">anindita</span>
+        <h2>Panel Kontrol & CMS Studio</h2>
+        <p>Silakan masuk untuk mengelola seluruh aspek website utama</p>
       </div>
 
-      <nav class="admin-nav">
+      <!-- Auth Mode Switcher -->
+      <div style="display:flex; gap:8px; margin-bottom:16px; background:rgba(255,255,255,0.06); padding:4px; border-radius:10px;">
+        <button type="button" id="tabLoginBtn" style="flex:1; padding:8px; border:none; border-radius:8px; background:#fff; color:#26160e; font-weight:700; font-size:12px; cursor:pointer;">🔑 Masuk (Login)</button>
+        <button type="button" id="tabRegisterBtn" style="flex:1; padding:8px; border:none; border-radius:8px; background:transparent; color:#d8b48f; font-weight:600; font-size:12px; cursor:pointer;">✨ Buat Akun Supabase</button>
+      </div>
+
+      <div class="login-credential-badge">
+        <strong>🛡️ Akun Admin Supabase Auth:</strong><br>
+        Email: <code>aninditaspace05@gmail.com</code> &bull; Sandi: <code>AdminPassword123!</code><br>
+        <div style="margin-top:4px; font-size:11px; color:#d8b48f;">Seluruh perubahan teks, foto &amp; video disimpan langsung ke database &amp; storage Supabase.</div>
+      </div>
+
+      <div id="loginErrorBox" class="login-error-msg" style="display:none;"></div>
+      <div id="loginSuccessBox" class="login-error-msg" style="display:none; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0;"></div>
+
+      <!-- Login Form -->
+      <form id="adminLoginForm">
+        <div class="form-group-login">
+          <label for="loginUsername">Email Administrator Supabase</label>
+          <input type="email" id="loginUsername" class="form-input-login" placeholder="contoh: aninditaspace05@gmail.com" required autocomplete="username">
+        </div>
+
+        <div class="form-group-login">
+          <label for="loginPassword">Kata Sandi (Password)</label>
+          <input type="password" id="loginPassword" class="form-input-login" placeholder="Masukkan password" required autocomplete="current-password">
+          <button type="button" class="password-toggle-btn" id="togglePasswordBtn" aria-label="Lihat kata sandi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+
+        <button type="submit" class="btn-login-submit" id="loginSubmitBtn">
+          Masuk dengan Supabase Auth &rarr;
+        </button>
+
+        <div style="display:flex; gap:8px; margin-top:12px;">
+          <button type="button" class="btn-quick-fill" id="quickLoginSbBtn" style="flex:1; margin-top:0; font-size:12px;">
+            ⚡ Isi Cepat &amp; Masuk Akun Supabase Admin
+          </button>
+        </div>
+      </form>
+
+      <!-- Register Form -->
+      <form id="adminRegisterForm" style="display:none;">
+        <div class="form-group-login">
+          <label for="regEmail">Alamat Email Administrator</label>
+          <input type="email" id="regEmail" class="form-input-login" placeholder="admin@domain.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group-login">
+          <label for="regFullName">Nama Lengkap</label>
+          <input type="text" id="regFullName" class="form-input-login" placeholder="Administrator Anindita" required>
+        </div>
+
+        <div class="form-group-login">
+          <label for="regPassword">Kata Sandi (Min. 6 Karakter)</label>
+          <input type="password" id="regPassword" class="form-input-login" placeholder="Kata sandi aman" required minlength="6" autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="btn-login-submit" id="regSubmitBtn" style="background:#22c55e;">
+          Daftarkan Akun Supabase &rarr;
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="index.html" style="font-size: 12.5px; color: #bfaea5; text-decoration: underline;">&larr; Kembali ke Website Utama</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. ADMIN CMS WORKSPACE VIEW (Ditampilkan setelah berhasil login)
+       ========================================================================== -->
+  <div id="adminWorkspaceView" class="admin-layout" style="display: none;">
+
+    <!-- Mobile Navigation Tab Bar (Hanya tampil di tablet & hp) -->
+    <div class="admin-mobile-tabs" id="adminMobileTabs">
+      <button type="button" class="admin-nav-item active" data-tab="orders">📋 Pesanan</button>
+      <button type="button" class="admin-nav-item" data-tab="brand">🏷️ Brand</button>
+      <button type="button" class="admin-nav-item" data-tab="hero">🌟 Hero & Stats</button>
+      <button type="button" class="admin-nav-item" data-tab="services">💼 Layanan</button>
+      <button type="button" class="admin-nav-item" data-tab="portfolio">🎨 Portofolio</button>
+      <button type="button" class="admin-nav-item" data-tab="about">ℹ️ Tentang & Alur</button>
+      <button type="button" class="admin-nav-item" data-tab="testimonials">💬 Testimoni</button>
+      <button type="button" class="admin-nav-item" data-tab="cta">📢 CTA & Footer</button>
+      <button type="button" class="admin-nav-item" data-tab="security">🔐 Password</button>
+    </div>
+
+    <!-- Desktop Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-brand">
+        <a href="index.html" target="_blank" class="wordmark light">anindita</a>
+        <small>CMS STUDIO &bull; PENGELOLA WEBSITE</small>
+      </div>
+
+      <nav class="admin-nav" id="adminDesktopNav">
         <a href="#orders" class="admin-nav-item active" data-tab="orders">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          Pesanan & Brief
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          Pesanan & Brief Klien
+        </a>
+
+        <a href="#brand" class="admin-nav-item" data-tab="brand">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+          Identitas Brand & Kontak
+        </a>
+
+        <a href="#hero" class="admin-nav-item" data-tab="hero">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          Hero, Stats & Video Kartu
         </a>
 
         <a href="#services" class="admin-nav-item" data-tab="services">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-          </svg>
-          Layanan & Tarif
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Layanan & Tarif Harga
         </a>
 
-        <a href="index.html" class="admin-nav-item" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-          Lihat Landing Page ↗
+        <a href="#portfolio" class="admin-nav-item" data-tab="portfolio">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          Portofolio & Galeri Karya
+        </a>
+
+        <a href="#about" class="admin-nav-item" data-tab="about">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Tentang Kami & Alur Kerja
+        </a>
+
+        <a href="#testimonials" class="admin-nav-item" data-tab="testimonials">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Testimoni Klien
+        </a>
+
+        <a href="#cta" class="admin-nav-item" data-tab="cta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Banner Ajakan & Footer
+        </a>
+
+        <a href="#security" class="admin-nav-item" data-tab="security">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          Ganti Akun & Password
         </a>
       </nav>
 
@@ -51,111 +168,674 @@
         <div style="display:flex; align-items:center; gap:10px;">
           <div class="author-avatar" style="width:34px; height:34px; font-size:12px;">A</div>
           <div>
-            <div style="font-size:13px; font-weight:700;">Administrator</div>
-            <div style="font-size:11px; color:#a48e82;">Kelompok 4</div>
+            <div style="font-size:13px; font-weight:700;" id="userBadgeName">Administrator</div>
+            <div style="font-size:11px; color:#a48e82;" id="userRoleBadge">Supabase Auth &bull; Logged In</div>
           </div>
         </div>
+        <button type="button" id="logoutBtn" class="btn btn-outline-white btn-sm" style="padding:4px 8px; font-size:11px;" title="Keluar dari sesi admin">Keluar</button>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- Main Workspace Area -->
     <main class="admin-main">
       <header class="admin-topbar">
         <div>
-          <span class="eyebrow" style="margin-bottom:2px;">PANEL KONTROL</span>
-          <h1>Manajemen Pesanan & Brief Proyek</h1>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+            <span class="eyebrow" style="margin-bottom:0;">PANEL KONTROL CMS LENGKAP</span>
+            <span id="supabaseStatusBadge" style="display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; background:#fef3c7; color:#92400e; border:1px solid #fde68a;">
+              <span id="supabaseStatusDot" style="width:7px; height:7px; border-radius:50%; background:#f59e0b;"></span>
+              <span id="supabaseStatusText">Database: Memeriksa...</span>
+            </span>
+          </div>
+          <h1 id="topbarTitle">Manajemen Pesanan & Brief Klien</h1>
         </div>
-        <div style="display:flex; gap:12px;">
-          <a href="index.html" class="btn btn-outline-dark btn-sm">Lihat Web Klien ↗</a>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <a href="index.html" target="_blank" rel="noopener" class="btn btn-outline-dark btn-sm">👁️ Lihat Web Klien ↗</a>
+          <button type="button" class="btn btn-dark btn-sm" id="btnSaveMasterTop">💾 Simpan Perubahan</button>
         </div>
       </header>
 
-      <!-- Stats Grid -->
-      <section class="admin-stats-grid">
-        <div class="admin-stat-card">
-          <span class="stat-title">Total Pesanan</span>
-          <strong class="stat-num" id="statTotalOrders">0</strong>
+      <!-- Layperson Banner Guidance -->
+      <div class="cms-top-banner">
+        <div>
+          <strong>💡 Tips Penggunaan untuk Pemilik Web:</strong>
+          <p>Anda dapat mengubah teks, harga, foto, video, maupun layanan kapan saja. Setelah mengubah, klik tombol <strong>"Simpan Perubahan"</strong> di kanan atas atau bawah layar.</p>
         </div>
-        <div class="admin-stat-card">
-          <span class="stat-title">Menunggu WhatsApp</span>
-          <strong class="stat-num" id="statPendingWa">0</strong>
-        </div>
-        <div class="admin-stat-card">
-          <span class="stat-title">Sedang Dikerjakan</span>
-          <strong class="stat-num" id="statProcessing">0</strong>
-        </div>
-        <div class="admin-stat-card">
-          <span class="stat-title">Estimasi Nilai Proyek</span>
-          <strong class="stat-num" id="statRevenue" style="color:#22c55e;">Rp 0</strong>
-        </div>
-      </section>
+        <button type="button" class="btn btn-outline-dark btn-sm" id="btnResetDefaultPrompt" style="white-space:nowrap; background:#fff;">🔄 Reset ke Bawaan</button>
+      </div>
 
-      <!-- Orders Section -->
-      <section class="admin-table-card" id="tabOrders">
-        <div class="admin-table-head">
-          <h2 style="font-size:18px; font-weight:700;">Daftar Pesanan & Brief Klien</h2>
-          <div style="display:flex; gap:10px;">
-            <input type="text" id="orderSearchInput" class="form-input" placeholder="Cari nama / brand..." style="max-width:240px; padding:6px 12px; font-size:13px;">
+      <!-- ================================================================
+           TAB 1: PESANAN & BRIEF
+           ================================================================ -->
+      <div id="pane-orders" class="cms-tab-pane">
+        <!-- Stats Grid -->
+        <section class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <span class="stat-title">Total Pesanan</span>
+            <strong class="stat-num" id="statTotalOrders">0</strong>
+          </div>
+          <div class="admin-stat-card">
+            <span class="stat-title">Menunggu WhatsApp</span>
+            <strong class="stat-num" id="statPendingWa">0</strong>
+          </div>
+          <div class="admin-stat-card">
+            <span class="stat-title">Sedang Dikerjakan</span>
+            <strong class="stat-num" id="statProcessing">0</strong>
+          </div>
+          <div class="admin-stat-card">
+            <span class="stat-title">Estimasi Nilai Proyek</span>
+            <strong class="stat-num" id="statRevenue" style="color:#22c55e;">Rp 0</strong>
+          </div>
+        </section>
+
+        <section class="admin-table-card">
+          <div class="admin-table-head">
+            <h2 style="font-size:18px; font-weight:700;">Daftar Pesanan & Brief Masuk</h2>
+            <input type="text" id="orderSearchInput" class="form-input" placeholder="Cari nama klien / brand..." style="max-width:240px; padding:6px 12px; font-size:13px;">
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID Pesanan</th>
+                  <th>Klien & Brand</th>
+                  <th>Layanan</th>
+                  <th>Total</th>
+                  <th>Deadline</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================================================================
+           TAB 2: IDENTITAS BRAND & KONTAK
+           ================================================================ -->
+      <div id="pane-brand" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Informasi Brand & Identitas Studio</h2>
+              <p>Mengubah nama brand, tagline, dan informasi dasar studio.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-grid-2">
+            <div class="cms-form-group">
+              <label class="cms-label" for="brandName">Nama Wordmark Logo <span class="cms-label-badge">Wajib</span></label>
+              <input type="text" id="brandName" class="cms-input" placeholder="contoh: anindita">
+              <div class="cms-hint">Teks logo huruf kecil yang muncul di header dan footer.</div>
+            </div>
+
+            <div class="cms-form-group">
+              <label class="cms-label" for="brandFullName">Nama Lengkap Studio</label>
+              <input type="text" id="brandFullName" class="cms-input" placeholder="contoh: Anindita Creative">
+              <div class="cms-hint">Nama resmi perusahaan / studio kreatif.</div>
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="brandTagline">Tagline Studio</label>
+            <input type="text" id="brandTagline" class="cms-input" placeholder="contoh: CREATIVE AGENCY BERBASIS PROJECT">
+            <div class="cms-hint">Muncul di atas headline utama (eyebrow pill).</div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="brandCopyright">Teks Hak Cipta (Footer)</label>
+            <input type="text" id="brandCopyright" class="cms-input" placeholder="contoh: &copy; 2026 Anindita Creative. Seluruh hak cipta dilindungi.">
+            <div class="cms-hint">Ditampilkan di baris paling bawah halaman website.</div>
           </div>
         </div>
 
-        <div style="overflow-x:auto;">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>ID Pesanan</th>
-                <th>Klien & Brand</th>
-                <th>Layanan</th>
-                <th>Total</th>
-                <th>Deadline</th>
-                <th>Status</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="ordersTableBody">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
-        </div>
-      </section>
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Kontak & Media Sosial</h2>
+              <p>Nomor WhatsApp tujuan order klien, email, dan akun Instagram.</p>
+            </div>
+          </div>
 
-      <!-- Services Section (Hidden by default, toggled via tab) -->
-      <section class="admin-table-card" id="tabServices" style="display:none; margin-top:24px;">
-        <div class="admin-table-head">
-          <h2 style="font-size:18px; font-weight:700;">Pengaturan Layanan & Tarif</h2>
+          <div class="cms-form-grid-2">
+            <div class="cms-form-group">
+              <label class="cms-label" for="brandWaNum">Nomor WhatsApp API (Kode Negara 62) <span class="cms-label-badge">Wajib</span></label>
+              <input type="text" id="brandWaNum" class="cms-input" placeholder="contoh: 6285733812033">
+              <div class="cms-hint">Awali dengan 62 (tanpa tanda + atau spasi). Digunakan saat klien klik tombol chat.</div>
+            </div>
+
+            <div class="cms-form-group">
+              <label class="cms-label" for="brandWaDisplay">Tampilan Nomor WhatsApp</label>
+              <input type="text" id="brandWaDisplay" class="cms-input" placeholder="contoh: 0857-3381-2033">
+              <div class="cms-hint">Format yang enak dibaca pengunjung di bagian footer.</div>
+            </div>
+          </div>
+
+          <div class="cms-form-grid-2">
+            <div class="cms-form-group">
+              <label class="cms-label" for="brandEmail">Alamat Email</label>
+              <input type="email" id="brandEmail" class="cms-input" placeholder="contoh: hello@anindita.id">
+            </div>
+
+            <div class="cms-form-group">
+              <label class="cms-label" for="brandInstagram">Handle Instagram</label>
+              <input type="text" id="brandInstagram" class="cms-input" placeholder="contoh: @anindita.creative">
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="brandInstagramUrl">URL Link Instagram</label>
+            <input type="url" id="brandInstagramUrl" class="cms-input" placeholder="contoh: https://instagram.com/anindita.creative">
+          </div>
         </div>
-        <div style="overflow-x:auto;">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nama Layanan</th>
-                <th>Paket</th>
-                <th>Harga Dasar</th>
-                <th>Estimasi</th>
-              </tr>
-            </thead>
-            <tbody id="servicesTableBody">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
+      </div>
+
+      <!-- ================================================================
+           TAB 3: HERO, STATS & VIDEO KARTU
+           ================================================================ -->
+      <div id="pane-hero" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Teks Utama Bagian Atas (Hero Section)</h2>
+              <p>Kalimat pertama yang dilihat calon klien saat membuka website.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="heroTitle">Judul Headline Utama (Mendukung &lt;br&gt; untuk baris baru)</label>
+            <textarea id="heroTitle" class="cms-textarea" rows="3" placeholder="contoh: Kami mengubah ide&lt;br&gt;menjadi karya visual&lt;br&gt;yang bercerita."></textarea>
+            <div class="cms-hint">Gunakan &lt;br&gt; jika ingin membuat baris baru agar tampil berirama seperti desain asli.</div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="heroDesc">Paragraf Deskripsi Singkat</label>
+            <textarea id="heroDesc" class="cms-textarea" rows="3" placeholder="contoh: Edit video, edit feed, videographer, hingga 3D text movement..."></textarea>
+          </div>
         </div>
-      </section>
+
+        <!-- 3 Angka Statistik -->
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>3 Angka Statistik Pencapaian</h2>
+              <p>Bukti kredibilitas studio yang tampil tepat di bawah tombol Hero.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-grid-3">
+            <div class="cms-form-group" style="background:#faf6f1; padding:14px; border-radius:12px;">
+              <label class="cms-label" for="statVal1">Statistik 1: Angka</label>
+              <input type="text" id="statVal1" class="cms-input" placeholder="150+">
+              <label class="cms-label" for="statLbl1" style="margin-top:8px;">Keterangan</label>
+              <input type="text" id="statLbl1" class="cms-input" placeholder="Project selesai">
+            </div>
+
+            <div class="cms-form-group" style="background:#faf6f1; padding:14px; border-radius:12px;">
+              <label class="cms-label" for="statVal2">Statistik 2: Angka</label>
+              <input type="text" id="statVal2" class="cms-input" placeholder="60+">
+              <label class="cms-label" for="statLbl2" style="margin-top:8px;">Keterangan</label>
+              <input type="text" id="statLbl2" class="cms-input" placeholder="Klien puas">
+            </div>
+
+            <div class="cms-form-group" style="background:#faf6f1; padding:14px; border-radius:12px;">
+              <label class="cms-label" for="statVal3">Statistik 3: Angka</label>
+              <input type="text" id="statVal3" class="cms-input" placeholder="5">
+              <label class="cms-label" for="statLbl3" style="margin-top:8px;">Keterangan</label>
+              <input type="text" id="statLbl3" class="cms-input" placeholder="Layanan kreatif">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Kartu Showcase Video Hero -->
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>4 Kartu Showcase Visual di Samping Hero</h2>
+              <p>Kartu video bertingkat (staggered) di sebelah kanan hero. Anda bisa mengganti judul, label, gradasi, atau mengunggah video/foto asli.</p>
+            </div>
+          </div>
+
+          <div class="cms-items-grid" id="heroShowcaseEditorGrid">
+            <!-- Dynamically populated 4 showcase cards -->
+          </div>
+        </div>
+
+        <!-- Ticker Teks Berjalan -->
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Pita Teks Berjalan (Marquee Strip)</h2>
+              <p>Kata kunci layanan yang bergerak terus menerus di bawah Hero.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="tickerInput">Daftar Kata (Pisahkan dengan koma)</label>
+            <input type="text" id="tickerInput" class="cms-input" placeholder="EDIT VIDEO, EDIT FEED, VIDEOGRAPHER, 3D TEXT MOVEMENT, MOTION GRAPHIC">
+            <div class="cms-hint">Tiap kata akan dipisahkan otomatis menjadi strip berjalan.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 4: LAYANAN & TARIF
+           ================================================================ -->
+      <div id="pane-services" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Daftar Layanan & Paket Harga</h2>
+              <p>Layanan yang dapat dipilih klien untuk dimasukkan ke keranjang belanja.</p>
+            </div>
+            <button type="button" class="btn btn-dark btn-sm" id="btnAddNewService">&plus; Tambah Layanan Baru</button>
+          </div>
+
+          <div class="cms-items-grid" id="servicesCardsList">
+            <!-- Rendered by js/dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 5: PORTOFOLIO & GALERI
+           ================================================================ -->
+      <div id="pane-portfolio" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Galeri Karya & Portofolio</h2>
+              <p>Tampilkan hasil karya terbaik studio Anda. Anda bisa mengunggah video MP4 atau foto karya.</p>
+            </div>
+            <button type="button" class="btn btn-dark btn-sm" id="btnAddNewPortfolio">&plus; Tambah Karya Baru</button>
+          </div>
+
+          <div class="cms-items-grid" id="portfolioCardsList">
+            <!-- Rendered by js/dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 6: TENTANG KAMI & PROSES
+           ================================================================ -->
+      <div id="pane-about" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Bagian "Tentang Kami"</h2>
+              <p>Cerita studio dan 4 nilai keunggulan utama.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="aboutTitle">Judul Bagian Tentang</label>
+            <input type="text" id="aboutTitle" class="cms-input" placeholder="Studio kreatif yang berfokus pada hasil setiap project.">
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="aboutDesc">Deskripsi Cerita Studio</label>
+            <textarea id="aboutDesc" class="cms-textarea" rows="3"></textarea>
+          </div>
+
+          <h3 style="font-size:15px; font-weight:700; margin:20px 0 12px 0;">4 Keunggulan Studio:</h3>
+          <div class="cms-form-grid-2" id="aboutFeaturesContainer">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Bagian "Proses Kerja" (4 Langkah Terarah)</h2>
+              <p>Tahapan alur kerja dari konsultasi awal hingga pengiriman file final.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="processTitle">Judul Proses Kerja</label>
+            <input type="text" id="processTitle" class="cms-input" placeholder="Dari chat pertama sampai hasil akhir, semuanya terarah.">
+          </div>
+
+          <div class="cms-form-grid-2" id="processStepsContainer">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 7: TESTIMONI KLIEN
+           ================================================================ -->
+      <div id="pane-testimonials" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Ulasan & Testimoni Klien</h2>
+              <p>Komentar dan ulasan bintang dari klien yang pernah menggunakan jasa studio.</p>
+            </div>
+            <button type="button" class="btn btn-dark btn-sm" id="btnAddNewTestimonial">&plus; Tambah Testimoni Baru</button>
+          </div>
+
+          <div class="cms-items-grid" id="testimonialsCardsList">
+            <!-- Rendered by js/dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 8: BANNER CTA & FOOTER
+           ================================================================ -->
+      <div id="pane-cta" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card">
+          <div class="cms-card-header">
+            <div>
+              <h2>Banner Ajakan (Call to Action)</h2>
+              <p>Bagian kartu ajakan berwarna tembaga di bawah halaman sebelum footer.</p>
+            </div>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="ctaTitle">Judul Banner Ajakan</label>
+            <input type="text" id="ctaTitle" class="cms-input" placeholder="Punya project? Ayo kita bicarakan.">
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="ctaDesc">Teks Penjelasan Ajakan</label>
+            <textarea id="ctaDesc" class="cms-textarea" rows="2" placeholder="Pilih layanan, isi brief singkat, dan pesanan Anda langsung terkirim ke WhatsApp kami."></textarea>
+          </div>
+
+          <div class="cms-form-grid-2">
+            <div class="cms-form-group">
+              <label class="cms-label" for="ctaBtnWa">Teks Tombol WhatsApp</label>
+              <input type="text" id="ctaBtnWa" class="cms-input" placeholder="Chat via WhatsApp">
+            </div>
+
+            <div class="cms-form-group">
+              <label class="cms-label" for="ctaBtnCart">Teks Tombol Keranjang</label>
+              <input type="text" id="ctaBtnCart" class="cms-input" placeholder="Buka Keranjang">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 9: GANTI PASSWORD ADMIN
+           ================================================================ -->
+      <div id="pane-security" class="cms-tab-pane" style="display: none;">
+        <div class="cms-section-card" style="max-width: 520px;">
+          <div class="cms-card-header">
+            <div>
+              <h2>Pengaturan Akun & Kata Sandi</h2>
+              <p>Perbarui username dan password akun admin Anda.</p>
+            </div>
+          </div>
+
+          <form id="changePasswordForm">
+            <div class="cms-form-group">
+              <label class="cms-label" for="newUsernameInput">Nama Pengguna Baru</label>
+              <input type="text" id="newUsernameInput" class="cms-input" required value="admin">
+            </div>
+
+            <div class="cms-form-group">
+              <label class="cms-label" for="newPasswordInput">Kata Sandi Baru</label>
+              <input type="password" id="newPasswordInput" class="cms-input" placeholder="Minimal 6 karakter" required minlength="6">
+            </div>
+
+            <div class="cms-form-group">
+              <label class="cms-label" for="confirmPasswordInput">Ulangi Kata Sandi Baru</label>
+              <input type="password" id="confirmPasswordInput" class="cms-input" placeholder="Ketik ulang kata sandi" required minlength="6">
+            </div>
+
+            <button type="submit" class="btn btn-dark" style="margin-top:10px;">Perbarui Akun Admin</button>
+          </form>
+        </div>
+      </div>
+
     </main>
+
+    <!-- Floating Save Master Action Bar -->
+    <div class="cms-floating-bar" id="cmsFloatingBar">
+      <span>✨ Siap memperbarui website?</span>
+      <a href="index.html" target="_blank" rel="noopener" class="btn-preview-web">👁️ Lihat Web ↗</a>
+      <button type="button" class="btn-save-master" id="btnSaveMasterBottom">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Simpan Perubahan
+      </button>
+    </div>
+
   </div>
 
-  <!-- Modal Detail Brief -->
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+
+  <!-- Modal 1: Detail Brief Pesanan -->
   <div class="modal-backdrop" id="briefModalBackdrop">
     <div class="modal-content">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; border-bottom:1px solid var(--color-border); padding-bottom:14px;">
         <h3 style="font-size:18px; font-weight:700;" id="modalOrderId">Detail Pesanan</h3>
         <button type="button" class="drawer-close-btn" id="closeModalBtn">&times;</button>
       </div>
+      <div id="modalBodyDetails" style="display:flex; flex-direction:column; gap:14px;"></div>
+    </div>
+  </div>
 
-      <div id="modalBodyDetails" style="display:flex; flex-direction:column; gap:14px;">
-        <!-- Filled dynamically -->
+  <!-- Modal 2: Tambah / Edit Layanan -->
+  <div class="modal-backdrop" id="serviceModal">
+    <div class="modal-content">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; border-bottom:1px solid var(--color-border); padding-bottom:12px;">
+        <h3 style="font-size:18px; font-weight:700;" id="serviceModalTitle">Edit Layanan</h3>
+        <button type="button" class="drawer-close-btn" id="closeServiceModalBtn">&times;</button>
+      </div>
+
+      <form id="serviceForm">
+        <input type="hidden" id="serviceFormId">
+
+        <div class="cms-form-group">
+          <label class="cms-label" for="modalServiceTitle">Nama Layanan <span class="cms-label-badge">Wajib</span></label>
+          <input type="text" id="modalServiceTitle" class="cms-input" placeholder="contoh: Edit Video TikTok" required>
+        </div>
+
+        <div class="cms-form-grid-2">
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalServicePrice">Harga (Rupiah) <span class="cms-label-badge">Wajib</span></label>
+            <input type="number" id="modalServicePrice" class="cms-input" placeholder="150000" required min="0">
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalServicePackage">Label Paket</label>
+            <input type="text" id="modalServicePackage" class="cms-input" placeholder="Paket Reels - maks. 60 detik">
+          </div>
+        </div>
+
+        <div class="cms-form-grid-2">
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalServiceEstimate">Estimasi Pengerjaan</label>
+            <input type="text" id="modalServiceEstimate" class="cms-input" placeholder="Estimasi 2-3 hari kerja">
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalServiceIcon">Ikon Layanan</label>
+            <select id="modalServiceIcon" class="cms-select">
+              <option value="video">Kamera Film (Video)</option>
+              <option value="grid">Grid Galeri (Feed)</option>
+              <option value="camera">Shooting Kamera (Videographer)</option>
+              <option value="cube">Kubus 3D (3D Text)</option>
+              <option value="sparkle">Bintang Kilau (Motion Graphic)</option>
+              <option value="stack">Tumpukan Lapisan (Paket Bulanan)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cms-form-group">
+          <label class="cms-label" for="modalServiceDesc">Deskripsi Singkat</label>
+          <textarea id="modalServiceDesc" class="cms-textarea" rows="2" placeholder="Jelaskan apa yang didapatkan klien..."></textarea>
+        </div>
+
+        <div class="cms-form-group">
+          <label class="cms-label">Unggah Foto Thumbnail atau Gambar Layanan</label>
+          <div class="cms-media-box">
+            <div class="cms-media-preview-area" id="servicePreviewArea">
+              <span class="empty-placeholder">Belum ada foto/video</span>
+            </div>
+            <div class="cms-upload-row">
+              <label class="cms-file-label">
+                📁 Pilih File Foto/Video
+                <input type="file" id="serviceFileInput" class="cms-file-input" accept="image/*,video/*">
+              </label>
+              <button type="button" class="btn btn-outline-dark btn-sm" id="btnRemoveServiceMedia">Hapus Media</button>
+            </div>
+            <input type="hidden" id="serviceMediaUrl">
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px; border-top:1px solid #eee; padding-top:14px;">
+          <button type="button" class="btn btn-outline-dark" id="cancelServiceModalBtn">Batal</button>
+          <button type="submit" class="btn btn-dark" id="saveServiceModalBtn">Simpan Layanan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Tambah / Edit Portofolio -->
+  <div class="modal-backdrop" id="portfolioModal">
+    <div class="modal-content">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; border-bottom:1px solid var(--color-border); padding-bottom:12px;">
+        <h3 style="font-size:18px; font-weight:700;" id="portfolioModalTitle">Edit Karya Portofolio</h3>
+        <button type="button" class="drawer-close-btn" id="closePortfolioModalBtn">&times;</button>
+      </div>
+
+      <form id="portfolioForm">
+        <input type="hidden" id="portfolioFormId">
+
+        <div class="cms-form-group">
+          <label class="cms-label" for="modalPortTitle">Judul Karya <span class="cms-label-badge">Wajib</span></label>
+          <input type="text" id="modalPortTitle" class="cms-input" placeholder="contoh: Reels Brand Skincare" required>
+        </div>
+
+        <div class="cms-form-grid-2">
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalPortCategory">Kategori Portofolio</label>
+            <select id="modalPortCategory" class="cms-select">
+              <option value="video">Edit Video</option>
+              <option value="feed">Edit Feed</option>
+              <option value="videographer">Videographer</option>
+              <option value="3d">3D Text Movement / Motion</option>
+            </select>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalPortBadge">Label Badge</label>
+            <input type="text" id="modalPortBadge" class="cms-input" placeholder="Edit Video">
+          </div>
+        </div>
+
+        <div class="cms-form-grid-2">
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalPortClient">Nama Klien / Brand</label>
+            <input type="text" id="modalPortClient" class="cms-input" placeholder="Lumi Beauty">
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalPortYear">Tahun Pembuatan</label>
+            <input type="text" id="modalPortYear" class="cms-input" placeholder="2025">
+          </div>
+        </div>
+
+        <div class="cms-form-group">
+          <label class="cms-label">Unggah Foto atau Video Karya</label>
+          <div class="cms-media-box">
+            <div class="cms-media-preview-area" id="portfolioPreviewArea">
+              <span class="empty-placeholder">Belum ada media terpasang</span>
+            </div>
+            <div class="cms-upload-row">
+              <label class="cms-file-label">
+                📁 Unggah File Foto / Video MP4
+                <input type="file" id="portfolioFileInput" class="cms-file-input" accept="image/*,video/mp4,video/webm">
+              </label>
+              <button type="button" class="btn btn-outline-dark btn-sm" id="btnRemovePortMedia">Hapus Media</button>
+            </div>
+            <input type="hidden" id="portfolioMediaUrl">
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px; border-top:1px solid #eee; padding-top:14px;">
+          <button type="button" class="btn btn-outline-dark" id="cancelPortfolioModalBtn">Batal</button>
+          <button type="submit" class="btn btn-dark" id="savePortfolioModalBtn">Simpan Karya</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Tambah / Edit Testimoni -->
+  <div class="modal-backdrop" id="testimonialModal">
+    <div class="modal-content">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; border-bottom:1px solid var(--color-border); padding-bottom:12px;">
+        <h3 style="font-size:18px; font-weight:700;" id="testimonialModalTitle">Edit Testimoni</h3>
+        <button type="button" class="drawer-close-btn" id="closeTestimonialModalBtn">&times;</button>
+      </div>
+
+      <form id="testimonialForm">
+        <input type="hidden" id="testimonialFormId">
+
+        <div class="cms-form-grid-2">
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalTestName">Nama Klien <span class="cms-label-badge">Wajib</span></label>
+            <input type="text" id="modalTestName" class="cms-input" placeholder="Mika Klien" required>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-label" for="modalTestRole">Peran / Jabatan</label>
+            <input type="text" id="modalTestRole" class="cms-input" placeholder="Pemilik Brand Skincare">
+          </div>
+        </div>
+
+        <div class="cms-form-group">
+          <label class="cms-label" for="modalTestRating">Rating Bintang</label>
+          <select id="modalTestRating" class="cms-select">
+            <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5 Bintang - Sangat Puas)</option>
+            <option value="4">&#9733;&#9733;&#9733;&#9733; (4 Bintang - Puas)</option>
+            <option value="3">&#9733;&#9733;&#9733; (3 Bintang - Cukup)</option>
+          </select>
+        </div>
+
+        <div class="cms-form-group">
+          <label class="cms-label" for="modalTestQuote">Kutipan Ulasan / Testimoni <span class="cms-label-badge">Wajib</span></label>
+          <textarea id="modalTestQuote" class="cms-textarea" rows="3" placeholder="Tuliskan pengalaman positif klien..." required></textarea>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px; border-top:1px solid #eee; padding-top:14px;">
+          <button type="button" class="btn btn-outline-dark" id="cancelTestimonialModalBtn">Batal</button>
+          <button type="submit" class="btn btn-dark" id="saveTestimonialModalBtn">Simpan Testimoni</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 5: Konfirmasi Reset Bawaan -->
+  <div class="modal-backdrop" id="resetConfirmModal">
+    <div class="modal-content" style="max-width: 480px; text-align: center;">
+      <div style="font-size: 36px; margin-bottom: 12px;">⚠️</div>
+      <h3 style="font-size: 19px; font-weight: 700; margin-bottom: 8px;">Kembalikan Konten ke Bawaan Asli?</h3>
+      <p style="font-size: 13.5px; color: var(--text-dark-secondary); margin-bottom: 24px; line-height: 1.5;">
+        Semua perubahan teks, harga, foto, dan video yang Anda simpan akan dikembalikan ke pengaturan awal pabrik studio.
+      </p>
+      <div style="display:flex; justify-content:center; gap:12px;">
+        <button type="button" class="btn btn-outline-dark" id="cancelResetBtn">Batal</button>
+        <button type="button" class="btn btn-dark" id="confirmResetBtn" style="background:#dc2626; border-color:#dc2626; color:#fff;">Ya, Reset ke Awal</button>
       </div>
     </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="cmsToast">
+    <span id="cmsToastIcon">&#10003;</span>
+    <span id="cmsToastMsg">Perubahan berhasil disimpan!</span>
   </div>
 
   <!-- Scripts -->
@@ -163,4 +843,3 @@
   <script src="js/dashboard.js"></script>
 </body>
 </html>
-

@@ -55,9 +55,7 @@
           console.error('Failed to parse cart storage', e);
         }
       }
-      // Initialize with default design showcase items
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_INITIAL_CART));
-      return [...DEFAULT_INITIAL_CART];
+      return [];
     }
 
     saveCart() {
@@ -91,6 +89,7 @@
       const existing = this.items.find(i => i.serviceId === service.id || i.title === service.title);
       if (existing) {
         existing.quantity += 1;
+        if (service.mediaUrl) existing.mediaUrl = service.mediaUrl;
       } else {
         this.items.push({
           serviceId: service.id || 'service-' + Date.now(),
@@ -99,6 +98,7 @@
           estimate: service.estimate || 'Estimasi 2-3 hari kerja',
           price: service.price || 150000,
           quantity: 1,
+          mediaUrl: service.mediaUrl || '',
           gradient: service.gradient || 'linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%)'
         });
       }
@@ -163,11 +163,17 @@
         // Fast WhatsApp order button inside drawer
         const fastWaBtn = document.getElementById('drawerFastWaBtn');
         if (fastWaBtn) {
-          fastWaBtn.addEventListener('click', () => {
+          fastWaBtn.addEventListener('click', async () => {
             const items = this.getItems();
+            if (items.length === 0) {
+              alert('Keranjang Anda masih kosong. Silakan pilih layanan terlebih dahulu.');
+              return;
+            }
             const total = this.getTotal();
+            const content = await window.AninditaAPI.getContent();
+            const brandWa = (content.brand && content.brand.whatsappNumber) || '6285733812033';
             const defaultMsg = window.AninditaAPI.generateWhatsAppMessage({}, items, total);
-            const waUrl = window.AninditaAPI.buildWhatsAppUrl('6285733812033', defaultMsg);
+            const waUrl = window.AninditaAPI.buildWhatsAppUrl(brandWa, defaultMsg);
             window.open(waUrl, '_blank');
           });
         }
@@ -217,9 +223,13 @@
       listEl.innerHTML = items.map((item, index) => {
         const itemTotal = item.price * (item.quantity || 1);
         const formattedPrice = window.AninditaAPI ? window.AninditaAPI.formatRupiah(itemTotal) : `Rp ${itemTotal}`;
+        const mediaSrc = window.AninditaAPI ? window.AninditaAPI.resolveMediaUrl(item.mediaUrl) : (item.mediaUrl || '');
+        const hasImage = mediaSrc && !(window.AninditaAPI && window.AninditaAPI.isVideoUrl(mediaSrc));
         return `
           <div class="drawer-item-card">
-            <div class="item-thumb-sm" style="background: ${item.gradient};"></div>
+            <div class="item-thumb-sm" style="background: ${item.gradient}; overflow:hidden;">
+              ${hasImage ? `<img src="${mediaSrc}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">` : ''}
+            </div>
             <div class="drawer-item-details">
               <h4>${item.title}</h4>
               <p class="item-pkg">${item.package || ''}</p>

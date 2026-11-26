@@ -1,66 +1,91 @@
 /**
  * Anindita Creative - Confirmation Page Handler
- * Exactly matches 06 Konfirmasi Kirim WhatsApp (Desktop).png
+ * Reads active customer order from sessionStorage (never calls admin-only /api/orders)
+ * and loads studio WhatsApp destination dynamically from Supabase.
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
+  'use strict';
+
   const summaryItemsEl = document.getElementById('confirmSummaryItems');
   const totalAmountEl = document.getElementById('confirmTotalAmount');
   const confirmWaBtn = document.getElementById('confirmWaBtn');
 
-  // Try to find current order
-  const urlParams = new URLSearchParams(window.location.search);
-  const orderId = urlParams.get('orderId') || sessionStorage.getItem('anindita_active_order_id');
+  const api = window.AninditaAPI;
+  const content = await api.getContent();
+  const brandWaNumber = (content.brand && content.brand.whatsappNumber) || '6285733812033';
 
   let orderData = null;
-  if (orderId) {
-    const orders = await window.AninditaAPI.getOrders();
-    orderData = orders.find(o => o.id === orderId);
+  const storedOrderRaw = sessionStorage.getItem('anindita_active_order');
+  if (storedOrderRaw) {
+    try {
+      orderData = JSON.parse(storedOrderRaw);
+    } catch (_) {
+      orderData = null;
+    }
   }
 
-  // Fallback to active cart or default design state if order not loaded
-  let items = (orderData && orderData.items) || window.cartManager.getItems();
-  let total = (orderData && orderData.total) || window.cartManager.getTotal();
+  const items = (orderData && Array.isArray(orderData.items) && orderData.items) ||
+    (window.cartManager && window.cartManager.getItems()) || [];
+  const total = (orderData && typeof orderData.total === 'number' ? orderData.total : null) ??
+    (window.cartManager && window.cartManager.getTotal()) ?? 0;
 
-  if (!items || items.length === 0) {
-    items = [
-      { title: 'Edit Video', quantity: 2, price: 300000 },
-      { title: 'Edit Feed Instagram', quantity: 1, price: 250000 },
-      { title: '3D Text Movement', quantity: 1, price: 350000 }
-    ];
-    total = 1200000;
+  if (items.length === 0) {
+    if (summaryItemsEl) {
+      summaryItemsEl.innerHTML = `
+        <div style="text-align:center; padding:18px 0; color:var(--text-dark-secondary); font-size:13.5px;">
+          Belum ada pesanan aktif. Silakan pilih layanan terlebih dahulu.
+        </div>
+      `;
+    }
+    if (totalAmountEl) totalAmountEl.textContent = 'Rp 0';
+    if (confirmWaBtn) {
+      confirmWaBtn.disabled = true;
+      confirmWaBtn.style.opacity = '0.6';
+      confirmWaBtn.style.cursor = 'not-allowed';
+    }
+    return;
   }
 
   if (summaryItemsEl) {
-    summaryItemsEl.innerHTML = items.map(item => {
-      const itemTotal = item.price * (item.quantity || 1);
-      return `
-        <div class="confirm-item-row">
-          <span class="name">${item.title} x${item.quantity}</span>
-          <span class="price">${window.AninditaAPI.formatRupiah(itemTotal)}</span>
-        </div>
-      `;
-    }).join('');
+    summaryItemsEl.innerHTML = items
+      .map((item) => {
+        const itemTotal = (item.price || 0) * (item.quantity || 1);
+        return `
+          <div class="confirm-item-row">
+            <span class="name">${api.escapeHtml(item.title)} x${item.quantity || 1}</span>
+            <span class="price">${api.formatRupiah(itemTotal)}</span>
+          </div>
+        `;
+      })
+      .join('');
   }
 
   if (totalAmountEl) {
-    totalAmountEl.textContent = window.AninditaAPI.formatRupiah(total);
+    totalAmountEl.textContent = api.formatRupiah(total);
   }
 
   if (confirmWaBtn) {
     confirmWaBtn.addEventListener('click', () => {
-      const formInfo = orderData ? {
-        nama: orderData.customerName,
-        brand: orderData.brandName,
-        deadline: orderData.deadline,
-        link: orderData.referenceLink,
-        catatan: orderData.briefNotes
-      } : {};
+      const formInfo = orderData
+        ? {
+            nama: orderData.customerName,
+            brand: orderData.brandName,
+            deadline: orderData.deadline,
+            link: orderData.referenceLink,
+            catatan: orderData.briefNotes
+          }
+        : {
+            nama: sessionStorage.getItem('anindita_order_name') || '',
+            brand: sessionStorage.getItem('anindita_order_brand') || '',
+            deadline: sessionStorage.getItem('anindita_order_deadline') || '',
+            link: sessionStorage.getItem('anindita_order_link') || '',
+            catatan: sessionStorage.getItem('anindita_order_notes') || ''
+          };
 
-      const waMsg = window.AninditaAPI.generateWhatsAppMessage(formInfo, items, total);
-      const waUrl = window.AninditaAPI.buildWhatsAppUrl('6285733812033', waMsg);
+      const waMsg = api.generateWhatsAppMessage(formInfo, items, total);
+      const waUrl = api.buildWhatsAppUrl(brandWaNumber, waMsg);
       window.open(waUrl, '_blank');
     });
   }
 });
-

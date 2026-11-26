@@ -1,21 +1,30 @@
 {
   "brand": {
     "name": "anindita",
-    "fullName": "Anindita Creative",
+    "email": "aninditaspace05@gmail.com",
+    "title": "Kami mengubah ide<br>menjadi karya visual<br>yang bercerita.",
     "tagline": "CREATIVE AGENCY BERBASIS PROJECT",
-    "title": "Kami mengubah ide menjadi karya visual yang bercerita.",
+    "fullName": "Anindita Creative",
+    "copyright": "© 2026 Anindita Creative. Seluruh hak cipta dilindungi.",
+    "instagram": "@aninditaspace",
     "description": "Edit video, edit feed, videographer, hingga 3D text movement. Satu tim kreatif untuk membuat brand Anda tampil memukau dan mudah diingat.",
+    "instagramUrl": "https://instagram.com/aninditaspace",
     "whatsappNumber": "6285733812033",
-    "whatsappDisplay": "0857-3381-2033",
-    "email": "hello@anindita.id",
-    "instagram": "@anindita.creative",
-    "instagramUrl": "https://instagram.com/anindita.creative",
-    "copyright": "© 2026 Anindita Creative. Seluruh hak cipta dilindungi."
+    "whatsappDisplay": "0857-3381-2033"
   },
   "stats": [
-    { "value": "150+", "label": "Project selesai" },
-    { "value": "60+", "label": "Klien puas" },
-    { "value": "5", "label": "Layanan kreatif" }
+    {
+      "label": "Project selesai",
+      "value": "150+"
+    },
+    {
+      "label": "Klien puas",
+      "value": "60+"
+    },
+    {
+      "label": "Layanan kreatif",
+      "value": "5"
+    }
   ],
   "ticker": [
     "EDIT VIDEO",
@@ -25,141 +34,43 @@
     "MOTION GRAPHIC",
     "CONTENT PACKAGE"
   ],
-  "services": [
+  "showcase": [
     {
-      "id": "edit-video",
-      "title": "Edit Video",
-      "shortDesc": "Reels, TikTok, YouTube: cutting rapi, color grading, subtitle, dan sound design.",
-      "price": 150000,
-      "priceLabel": "Mulai dari",
-      "package": "Paket Reels - maks. 60 detik",
-      "estimate": "Estimasi 2-3 hari kerja",
-      "icon": "video",
-      "gradient": "linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%)"
-    },
-    {
-      "id": "edit-feed",
-      "title": "Edit Feed",
-      "shortDesc": "Tata letak feed Instagram yang konsisten: carousel, retouch, dan palet warna brand.",
-      "price": 250000,
-      "priceLabel": "Mulai dari",
-      "package": "Carousel 9 slide + retouch",
-      "estimate": "Estimasi 2-3 hari kerja",
-      "icon": "grid",
-      "gradient": "linear-gradient(135deg, #7c4c31 0%, #462617 100%)"
-    },
-    {
-      "id": "videographer",
-      "title": "Videographer",
-      "shortDesc": "Shooting profesional untuk produk, event, dan company profile lengkap dengan crew.",
-      "price": 1500000,
-      "priceLabel": "Mulai dari",
-      "package": "Shooting Half Day + Crew",
-      "estimate": "Estimasi 3-5 hari kerja",
-      "icon": "camera",
-      "gradient": "linear-gradient(135deg, #d8b48f 0%, #7e5539 60%, #3a2013 100%)"
-    },
-    {
-      "id": "3d-text",
-      "title": "3D Text Movement",
-      "shortDesc": "Teks 3D bergerak yang mencuri perhatian untuk intro, judul, dan iklan.",
-      "price": 350000,
-      "priceLabel": "Mulai dari",
-      "package": "Intro teks 3D - 10 detik",
-      "estimate": "Estimasi 2-3 hari kerja",
-      "icon": "cube",
-      "gradient": "linear-gradient(135deg, #4d2d1d 0%, #a47650 50%, #442416 100%)"
-    },
-    {
-      "id": "motion-graphic",
-      "title": "Motion Graphic",
-      "shortDesc": "Animasi logo, infografis, dan elemen motion untuk memperkuat cerita brand.",
-      "price": 400000,
-      "priceLabel": "Mulai dari",
-      "package": "Animasi logo & aset visual",
-      "estimate": "Estimasi 2-4 hari kerja",
-      "icon": "sparkle",
-      "gradient": "linear-gradient(135deg, #b98961 0%, #593725 100%)"
-    },
-    {
-      "id": "paket-bulanan",
-      "title": "Paket Konten Bulanan",
-      "shortDesc": "Paket hemat: video, feed, dan konsultasi konten dalam satu kontrak bulanan.",
-      "price": 2500000,
-      "priceLabel": "Mulai dari",
-      "package": "8 Reels + 12 Feed + Brief Konten",
-      "estimate": "Estimasi kontrak 1 bulan",
-      "icon": "stack",
-      "gradient": "linear-gradient(135deg, #8b6545 0%, #381f12 100%)"
-    }
-  ],
-  "portfolioCategories": [
-    { "id": "all", "label": "Semua" },
-    { "id": "video", "label": "Edit Video" },
-    { "id": "feed", "label": "Edit Feed" },
-    { "id": "videographer", "label": "Videographer" },
-    { "id": "3d", "label": "3D" }
-  ],
-  "portfolio": [
-    {
-      "id": "port-1",
-      "title": "Reels Brand Skincare",
-      "category": "video",
+      "id": "hero-1",
       "badge": "Edit Video",
-      "client": "Lumi Beauty",
-      "year": "2025",
-      "gradient": "linear-gradient(135deg, #c59b6d 0%, #875c39 50%, #432415 100%)"
+      "title": "Reels Skincare Lumi Beauty",
+      "category": "Edit Video",
+      "gradient": "linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%)",
+      "mediaUrl": ""
     },
     {
-      "id": "port-2",
-      "title": "Intro 3D Grand Opening",
-      "category": "3d",
-      "badge": "3D Text Movement",
-      "client": "Toko Nusantara",
-      "year": "2025",
-      "gradient": "linear-gradient(135deg, #442416 0%, #8c5d3b 50%, #3a1e12 100%)"
+      "id": "hero-2",
+      "badge": "3D Text",
+      "title": "3D Text Intro Toko Nusantara",
+      "category": "3D Text",
+      "gradient": "linear-gradient(135deg, #4d2d1d 0%, #a47650 50%, #442416 100%)",
+      "mediaUrl": ""
     },
     {
-      "id": "port-3",
-      "title": "Feed Instagram Kafe",
-      "category": "feed",
+      "id": "hero-3",
       "badge": "Edit Feed",
-      "client": "Kopi Senja",
-      "year": "2025",
-      "gradient": "linear-gradient(135deg, #aa7850 0%, #5d3620 100%)"
+      "title": "Instagram Feed Kopi Senja",
+      "category": "Edit Feed",
+      "gradient": "linear-gradient(135deg, #7c4c31 0%, #462617 100%)",
+      "mediaUrl": ""
     },
     {
-      "id": "port-4",
-      "title": "Company Profile Manufaktur",
-      "category": "videographer",
+      "id": "hero-4",
       "badge": "Videographer",
-      "client": "PT Maju Jaya",
-      "year": "2024",
-      "gradient": "linear-gradient(135deg, #d8b48f 0%, #845938 60%, #3a2013 100%)"
-    },
-    {
-      "id": "port-5",
-      "title": "Highlight Wedding Reels",
-      "category": "video",
-      "badge": "Edit Video",
-      "client": "Rina & Dimas",
-      "year": "2024",
-      "gradient": "linear-gradient(135deg, #5c3520 0%, #9e6d47 50%, #29150b 100%)"
-    },
-    {
-      "id": "port-6",
-      "title": "Logo Reveal Studio",
-      "category": "3d",
-      "badge": "Motion Graphic",
-      "client": "Studio Aksara",
-      "year": "2024",
-      "gradient": "linear-gradient(135deg, #bc936f 0%, #683e23 60%, #2e160a 100%)"
+      "title": "Company Profile PT Maju Jaya",
+      "category": "Videographer",
+      "gradient": "linear-gradient(135deg, #d8b48f 0%, #7e5539 60%, #3a2013 100%)",
+      "mediaUrl": ""
     }
   ],
   "about": {
-    "eyebrow": "TENTANG KAMI",
     "title": "Studio kreatif yang berfokus pada hasil setiap project.",
-    "description": "Anindita adalah agensi kreatif yang berkerja per project. Kami memadukan sentuhan visual yang hangat dengan proses kerja yang jelas, sehingga ide Anda tidak hanya terlihat bagus, tetapi juga tepat sasaran.",
+    "eyebrow": "TENTANG KAMI",
     "features": [
       {
         "id": "feat-1",
@@ -185,131 +96,198 @@
         "title": "Satu tim, banyak layanan",
         "description": "Video, feed, dan motion dikerjakan dengan gaya yang konsisten."
       }
-    ]
+    ],
+    "description": "Anindita adalah agensi kreatif yang berkerja per project. Kami memadukan sentuhan visual yang hangat dengan proses kerja yang jelas, sehingga ide Anda tidak hanya terlihat bagus, tetapi juga tepat sasaran."
   },
   "process": {
-    "eyebrow": "PROSES KERJA",
-    "title": "Dari chat pertama sampai hasil akhir, semuanya terarah.",
     "steps": [
       {
-        "number": "01",
         "title": "Konsultasi",
+        "number": "01",
         "description": "Ceritakan kebutuhan Anda dan kami bantu pilih layanan yang tepat."
       },
       {
-        "number": "02",
         "title": "Pilih & checkout",
+        "number": "02",
         "description": "Tambahkan layanan ke keranjang, isi brief, lalu kirim lewat WhatsApp."
       },
       {
-        "number": "03",
         "title": "Produksi & revisi",
+        "number": "03",
         "description": "Tim kami mengerjakan, Anda memberi masukan sesuai jatah revisi."
       },
       {
-        "number": "04",
         "title": "Hasil dikirim",
+        "number": "04",
         "description": "File final dikirim dalam format siap pakai untuk semua platform."
       }
-    ]
+    ],
+    "title": "Dari chat pertama sampai hasil akhir, semuanya terarah.",
+    "eyebrow": "PROSES KERJA"
   },
-  "testimonials": [
-    {
-      "id": "test-1",
-      "rating": 5,
-      "quote": "Hasil editnya rapi dan sesuai brief. Revisi juga cepat, sangat membantu konten bulanan kami.",
-      "name": "Nama Klien",
-      "role": "Pemilik Brand Skincare"
-    },
-    {
-      "id": "test-2",
-      "rating": 5,
-      "quote": "Teks 3D untuk grand opening kami terlihat keren. Banyak yang tanya dibuat di mana.",
-      "name": "Nama Klien",
-      "role": "Owner Toko Retail"
-    },
-    {
-      "id": "test-3",
-      "rating": 5,
-      "quote": "Proses pesan lewat WhatsApp sangat mudah, semua detail langsung tercatat.",
-      "name": "Nama Klien",
-      "role": "Marketing Manager"
-    }
-  ],
   "cta": {
     "title": "Punya project? Ayo kita bicarakan.",
+    "cartText": "Buka Keranjang",
     "description": "Pilih layanan, isi brief singkat, dan pesanan Anda langsung terkirim ke WhatsApp kami.",
-    "whatsappText": "Chat via WhatsApp",
-    "cartText": "Buka Keranjang"
+    "whatsappText": "Chat via WhatsApp"
   },
-  "initialCart": [
+  "services": [
     {
-      "serviceId": "edit-video",
+      "id": "edit-video",
       "title": "Edit Video",
-      "package": "Paket Reels",
+      "shortDesc": "Reels, TikTok, YouTube: cutting rapi, color grading, subtitle, dan sound design.",
+      "price": 150000,
+      "priceLabel": "Mulai dari",
+      "package": "Paket Reels - maks. 60 detik",
       "estimate": "Estimasi 2-3 hari kerja",
-      "price": 300000,
-      "quantity": 2,
+      "icon": "video",
+      "mediaUrl": "https://xcnhaxqlfxvmtbirmxvj.supabase.co/storage/v1/object/public/media/services/Anindita_Profile_1795687164860_2c72e873.png",
       "gradient": "linear-gradient(135deg, #c59b6d 0%, #684227 60%, #3a2214 100%)"
     },
     {
-      "serviceId": "edit-feed",
-      "title": "Edit Feed Instagram",
-      "package": "Carousel 9 slide",
-      "estimate": "Estimasi 2-3 hari kerja",
+      "id": "edit-feed",
+      "title": "Edit Feed",
+      "shortDesc": "Tata letak feed Instagram yang konsisten: carousel, retouch, dan palet warna brand.",
       "price": 250000,
-      "quantity": 1,
+      "priceLabel": "Mulai dari",
+      "package": "Carousel 9 slide + retouch",
+      "estimate": "Estimasi 2-3 hari kerja",
+      "icon": "grid",
+      "mediaUrl": "",
       "gradient": "linear-gradient(135deg, #7c4c31 0%, #462617 100%)"
     },
     {
-      "serviceId": "3d-text",
-      "title": "3D Text Movement",
-      "package": "Intro 10 detik",
-      "estimate": "Estimasi 2-3 hari kerja",
-      "price": 350000,
-      "quantity": 1,
-      "gradient": "linear-gradient(135deg, #4d2d1d 0%, #a47650 50%, #442416 100%)"
-    }
-  ],
-  "sampleOrders": [
-    {
-      "id": "ORD-2026-001",
-      "createdAt": "2026-11-24T10:15:00.000Z",
-      "customerName": "Budi Santoso",
-      "customerPhone": "081234567890",
-      "brandName": "Kopi Senja",
-      "deadline": "2026-11-30",
-      "referenceLink": "https://drive.google.com/drive/folders/sample-kopi-senja",
-      "briefNotes": "Butuh video reels 30 detik untuk promo menu kopi aren baru, footage sudah disiapkan di drive. Tone hangat dan earthy.",
-      "status": "pending_wa",
-      "statusLabel": "Menunggu WhatsApp",
-      "items": [
-        { "title": "Edit Video", "package": "Paket Reels", "quantity": 2, "price": 300000, "subtotal": 600000 },
-        { "title": "Edit Feed Instagram", "package": "Carousel 9 slide", "quantity": 1, "price": 250000, "subtotal": 250000 },
-        { "title": "3D Text Movement", "package": "Intro 10 detik", "quantity": 1, "price": 350000, "subtotal": 350000 }
-      ],
-      "subtotal": 1200000,
-      "discount": 0,
-      "total": 1200000
+      "id": "videographer",
+      "title": "Videographer",
+      "shortDesc": "Shooting profesional untuk produk, event, dan company profile lengkap dengan crew.",
+      "price": 1500000,
+      "priceLabel": "Mulai dari",
+      "package": "Shooting Half Day + Crew",
+      "estimate": "Estimasi 3-5 hari kerja",
+      "icon": "camera",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #d8b48f 0%, #7e5539 60%, #3a2013 100%)"
     },
     {
-      "id": "ORD-2026-002",
-      "createdAt": "2026-11-23T14:30:00.000Z",
-      "customerName": "Siti Rahma",
-      "customerPhone": "085811223344",
-      "brandName": "Lumi Beauty",
-      "deadline": "2026-12-05",
-      "referenceLink": "https://drive.google.com/drive/folders/sample-lumi-skincare",
-      "briefNotes": "Highlight produk sunscreen baru dengan tone aesthetic glowing.",
-      "status": "processing",
-      "statusLabel": "Sedang Dikerjakan",
-      "items": [
-        { "title": "Edit Video", "package": "Paket Reels", "quantity": 3, "price": 150000, "subtotal": 450000 }
-      ],
-      "subtotal": 450000,
-      "discount": 0,
-      "total": 450000
+      "id": "3d-text",
+      "title": "3D Text Movement",
+      "shortDesc": "Teks 3D bergerak yang mencuri perhatian untuk intro, judul, dan iklan.",
+      "price": 350000,
+      "priceLabel": "Mulai dari",
+      "package": "Intro teks 3D - 10 detik",
+      "estimate": "Estimasi 2-3 hari kerja",
+      "icon": "cube",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #4d2d1d 0%, #a47650 50%, #442416 100%)"
+    },
+    {
+      "id": "motion-graphic",
+      "title": "Motion Graphic",
+      "shortDesc": "Animasi logo, infografis, dan elemen motion untuk memperkuat cerita brand.",
+      "price": 400000,
+      "priceLabel": "Mulai dari",
+      "package": "Animasi logo & aset visual",
+      "estimate": "Estimasi 2-4 hari kerja",
+      "icon": "sparkle",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #b98961 0%, #593725 100%)"
+    },
+    {
+      "id": "paket-bulanan",
+      "title": "Paket Konten Bulanan",
+      "shortDesc": "Paket hemat: video, feed, dan konsultasi konten dalam satu kontrak bulanan.",
+      "price": 2500000,
+      "priceLabel": "Mulai dari",
+      "package": "8 Reels + 12 Feed + Brief Konten",
+      "estimate": "Estimasi kontrak 1 bulan",
+      "icon": "stack",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #8b6545 0%, #381f12 100%)"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "port-1",
+      "title": "Reels Brand Skincare",
+      "category": "video",
+      "badge": "Edit Video",
+      "client": "Lumi Beauty",
+      "year": "2025",
+      "mediaUrl": "https://xcnhaxqlfxvmtbirmxvj.supabase.co/storage/v1/object/public/media/portfolio/Gemini_Generated_Image_qbjuseqbjuseqbju_1795687451650_78b912da.jpg",
+      "gradient": "linear-gradient(135deg, #c59b6d 0%, #875c39 50%, #432415 100%)"
+    },
+    {
+      "id": "port-2",
+      "title": "Intro 3D Grand Opening",
+      "category": "3d",
+      "badge": "3D Text Movement",
+      "client": "Toko Nusantara",
+      "year": "2025",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #442416 0%, #8c5d3b 50%, #3a1e12 100%)"
+    },
+    {
+      "id": "port-3",
+      "title": "Feed Instagram Kafe",
+      "category": "feed",
+      "badge": "Edit Feed",
+      "client": "Kopi Senja",
+      "year": "2025",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #aa7850 0%, #5d3620 100%)"
+    },
+    {
+      "id": "port-4",
+      "title": "Company Profile Manufaktur",
+      "category": "videographer",
+      "badge": "Videographer",
+      "client": "PT Maju Jaya",
+      "year": "2024",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #d8b48f 0%, #845938 60%, #3a2013 100%)"
+    },
+    {
+      "id": "port-5",
+      "title": "Highlight Wedding Reels",
+      "category": "video",
+      "badge": "Edit Video",
+      "client": "Rina & Dimas",
+      "year": "2024",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #5c3520 0%, #9e6d47 50%, #29150b 100%)"
+    },
+    {
+      "id": "port-6",
+      "title": "Logo Reveal Studio",
+      "category": "3d",
+      "badge": "Motion Graphic",
+      "client": "Studio Aksara",
+      "year": "2024",
+      "mediaUrl": "",
+      "gradient": "linear-gradient(135deg, #bc936f 0%, #683e23 60%, #2e160a 100%)"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "test-1",
+      "name": "Mika Klien",
+      "role": "Pemilik Brand Skincare",
+      "rating": 5,
+      "quote": "Hasil editnya rapi dan sesuai brief. Revisi juga cepat, sangat membantu konten bulanan kami."
+    },
+    {
+      "id": "test-2",
+      "name": "Nana Klien",
+      "role": "Owner Toko Retail",
+      "rating": 5,
+      "quote": "Teks 3D untuk grand opening kami terlihat keren. Banyak yang tanya dibuat di mana."
+    },
+    {
+      "id": "test-3",
+      "name": "Kama Klien",
+      "role": "Marketing Manager",
+      "rating": 5,
+      "quote": "Proses pesan lewat WhatsApp sangat mudah, semua detail langsung tercatat."
     }
   ]
 }
-
